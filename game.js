@@ -1,24 +1,27 @@
 /**
  * game.js (root) — Virtual player movement and proximity unlocking
  *
- * Adds a player marker to the Leaflet map. Arrow keys / WASD move the player
- * ~50m per keypress. When the player gets within 500m of a historical site,
- * the location unlocks. Space/Enter opens the case file for the nearest site.
+ * Arrow keys / WASD: move ~50m per keypress
+ * Hold Shift: sprint (4× speed)
+ * Space / Enter: open case file for nearest unlocked site
+ * Reset button: return to start, clear saved position
  *
- * Depends on: js/game.js (Game), js/map.js (MapView), js/ui.js (UI)
- * Initialized by js/ui.js after MapView.init() completes.
+ * Player position is saved to localStorage and restored on reload.
  */
 
 const PlayerGame = (() => {
-  const STEP_DEG      = 0.00045;  // ~50m per keypress
-  const UNLOCK_DIST_M = 500;      // metres to unlock a site
+  const STEP_DEG      = 0.00045;        // ~50m per keypress
+  const SPRINT_MULT   = 4;              // Shift multiplier
+  const UNLOCK_DIST_M = 500;            // metres to unlock a site
   const START_POS     = [40.32, -74.17]; // Monmouth County centre
+  const POS_KEY       = 'momexplorer_pos';
 
-  let playerPos  = [...START_POS];
+  let playerPos    = [...START_POS];
   let playerMarker = null;
-  let leafletMap = null;
+  let leafletMap   = null;
+  let shiftHeld    = false;
 
-  // Haversine (duplicated here so root game.js is self-contained)
+  // Haversine (self-contained)
   function dist(lat1, lng1, lat2, lng2) {
     const R = 6371000;
     const r = d => d * Math.PI / 180;
@@ -27,11 +30,27 @@ const PlayerGame = (() => {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
+  function savePosition() {
+    localStorage.setItem(POS_KEY, JSON.stringify(playerPos));
+  }
+
+  function loadPosition() {
+    try {
+      const saved = localStorage.getItem(POS_KEY);
+      if (saved) playerPos = JSON.parse(saved);
+    } catch (e) { /* fall back to START_POS */ }
+  }
+
+  function step() {
+    return STEP_DEG * (shiftHeld ? SPRINT_MULT : 1);
+  }
+
   function move(dlat, dlng) {
     playerPos[0] += dlat;
     playerPos[1] += dlng;
     playerMarker.setLatLng(playerPos);
     leafletMap.panTo(playerPos, { animate: true, duration: 0.2 });
+    savePosition();
     checkProximity();
   }
 
@@ -65,6 +84,10 @@ const PlayerGame = (() => {
     document.getElementById('landmark').textContent = nearestName;
     document.getElementById('distance').textContent =
       nearestDist < 10000 ? `${Math.round(nearestDist)}m` : '—';
+    document.getElementById('action').textContent =
+      shiftHeld
+        ? '⚡ Sprint — Arrow keys / WASD • Space to inspect'
+        : 'Arrow keys / WASD to move • Space to inspect';
 
     // Hint when between 500m and 1500m of a locked site
     if (nearestLoc && nearestDist > UNLOCK_DIST_M && nearestDist < 1500
@@ -93,16 +116,18 @@ const PlayerGame = (() => {
 
   function resetPosition() {
     playerPos = [...START_POS];
+    localStorage.removeItem(POS_KEY);
     playerMarker.setLatLng(playerPos);
     leafletMap.setView(playerPos, 11, { animate: true });
     checkProximity();
   }
 
   function init() {
-    // Grab the internal Leaflet map instance via the map div
+    // Restore saved position (or start at centre)
+    loadPosition();
+
     leafletMap = MapView._leafletMap || document.getElementById('map')._leaflet_map;
 
-    // Create player marker
     const icon = L.divIcon({
       className: '',
       html: '<div class="player-marker">🧭</div>',
@@ -116,9 +141,16 @@ const PlayerGame = (() => {
     leafletMap.setView(playerPos, 11);
     checkProximity();
 
+    // Shift sprint tracking
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Shift') { shiftHeld = true; checkProximity(); }
+    });
+    document.addEventListener('keyup', e => {
+      if (e.key === 'Shift') { shiftHeld = false; checkProximity(); }
+    });
+
     // Keyboard movement
     document.addEventListener('keydown', e => {
-      // Don't capture keys when case panel / input is open
       if (document.activeElement && document.activeElement.tagName === 'INPUT') return;
       if (!document.getElementById('case-panel').classList.contains('hidden')) {
         if (e.key === ' ' || e.key === 'Enter') {
@@ -128,24 +160,23 @@ const PlayerGame = (() => {
         return;
       }
 
+      const s = step();
       switch (e.key) {
-        case 'ArrowUp':    case 'w': case 'W': e.preventDefault(); move( STEP_DEG,  0);        break;
-        case 'ArrowDown':  case 's': case 'S': e.preventDefault(); move(-STEP_DEG,  0);        break;
-        case 'ArrowLeft':  case 'a': case 'A': e.preventDefault(); move(0, -STEP_DEG);         break;
-        case 'ArrowRight': case 'd': case 'D': e.preventDefault(); move(0,  STEP_DEG);         break;
+        case 'ArrowUp':    case 'w': case 'W': e.preventDefault(); move( s,  0); break;
+        case 'ArrowDown':  case 's': case 'S': e.preventDefault(); move(-s,  0); break;
+        case 'ArrowLeft':  case 'a': case 'A': e.preventDefault(); move(0, -s);  break;
+        case 'ArrowRight': case 'd': case 'D': e.preventDefault(); move(0,  s);  break;
         case ' ':
         case 'Enter': e.preventDefault(); openNearest(); break;
       }
     });
 
-    // Button controls
+    // Button controls (always normal speed)
     document.getElementById('panUp').addEventListener('click',    () => move( STEP_DEG * 3,  0));
     document.getElementById('panDown').addEventListener('click',  () => move(-STEP_DEG * 3,  0));
     document.getElementById('panLeft').addEventListener('click',  () => move(0, -STEP_DEG * 3));
     document.getElementById('panRight').addEventListener('click', () => move(0,  STEP_DEG * 3));
     document.getElementById('resetPan').addEventListener('click', resetPosition);
-
-    document.getElementById('action').textContent = 'Arrow keys / WASD to move • Space to inspect';
   }
 
   return { init };
