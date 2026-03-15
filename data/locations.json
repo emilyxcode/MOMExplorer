@@ -1,0 +1,122 @@
+[
+  {
+    "id": "monmouth-battlefield",
+    "name": "Monmouth Battlefield State Park",
+    "coords": [40.2676, -74.3432],
+    "witness": "\"The heat was like a furnace — men fell not from musket balls, but from the sun itself.\" — Private Joseph Plumb Martin, Continental Army, June 28, 1778",
+    "evidence": "On the hottest day of 1778, the Battle of Monmouth turned on a single officer's decision. General Charles Lee commanded the Continental vanguard — then, without clear orders, began a full retreat. Washington, riding forward to rally his men, encountered Lee and reportedly unleashed a fury of words rarely heard from the General.",
+    "mystery": "What did General Lee's unauthorized retreat ultimately reveal?",
+    "choices": [
+      "That the British Army was unbeatable in open battle",
+      "That Washington's personal leadership could transform near-defeat into a draw",
+      "That American soldiers were too poorly trained to fight in summer heat"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Washington's furious rally — riding straight into the retreating line — stabilized the Continental Army. The battle ended in a tactical draw, but proved American troops could stand toe-to-toe with British regulars. Lee was later court-martialed."
+  },
+  {
+    "id": "old-tennent-church",
+    "name": "Old Tennent Church",
+    "coords": [40.2713, -74.3176],
+    "witness": "\"The church and its yard were filled with the groans of the dying. Every pew became a stretcher.\" — Reverend William Tennent III, July 1778",
+    "evidence": "Built in 1751, Old Tennent Church sits on a ridge that provided a commanding view of the battlefield. During and after the Battle of Monmouth, it served as a field hospital for both Continental and British wounded. Cannonball scars reportedly still mark nearby trees.",
+    "mystery": "Why was this church's hilltop location strategically significant during the battle?",
+    "choices": [
+      "It was used as a fortified gun emplacement by Washington's artillery",
+      "Its elevated position allowed officers to observe the entire battlefield and coordinate troop movements",
+      "British officers held a council of war there during the night before the battle"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! The ridge provided an unobstructed view across the rolling Monmouth terrain — invaluable for commanders trying to read a chaotic, spread-out engagement. Today, gravestones in its churchyard bear witness to those who never left."
+  },
+  {
+    "id": "molly-pitcher-well",
+    "name": "Molly Pitcher's Well",
+    "coords": [40.2665, -74.2744],
+    "witness": "\"She was a camp follower — a soldier's wife carrying water under fire. Whether she fired the cannon herself, history has debated for two centuries.\" — Historian John Landis, 1905",
+    "evidence": "Mary Ludwig Hays, wife of artilleryman William Hays, is the most likely historical figure behind the 'Molly Pitcher' legend. She carried water to overheated soldiers and cannon during the Battle of Monmouth. Some accounts claim she stepped to her husband's cannon when he collapsed from heat stroke.",
+    "mystery": "What does the 'Molly Pitcher' legend actually reveal about women in the Revolutionary War?",
+    "choices": [
+      "Women were officially enlisted in the Continental Army under secret orders",
+      "Camp followers — wives, cooks, nurses — were essential to army operations and sometimes faced direct combat",
+      "Molly Pitcher was actually a British spy who infiltrated Washington's camp"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Camp followers were the invisible backbone of 18th-century armies — cooking, nursing, hauling water, and sometimes fighting. Mary Hays was real; the legend grew around her because her story resonated with a nation wanting its own heroines."
+  },
+  {
+    "id": "twin-lights-navesink",
+    "name": "Twin Lights of Navesink",
+    "coords": [40.3970, -74.0043],
+    "witness": "\"No sailor who rounded Sandy Hook could miss them — two burning eyes on the bluff, keeping the watch we could not.\" — Captain's log, 1862",
+    "evidence": "The Twin Lights lighthouse in Highlands was built in 1862 to replace an earlier 1828 structure. It holds the distinction of being the first lighthouse in the United States to use the Fresnel lens, and in 1899 it was the site where Guglielmo Marconi first demonstrated wireless telegraphy in America — transmitting reports of the America's Cup yacht race to a New York newspaper.",
+    "mystery": "What historic first happened at Twin Lights in 1899?",
+    "choices": [
+      "The first electric lighthouse beam in the United States was activated here",
+      "Marconi demonstrated wireless telegraphy in America for the first time",
+      "The first transatlantic telegraph cable was brought ashore here"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Marconi set up his wireless equipment at Twin Lights to report the America's Cup races to the New York Herald. The technology that would become radio was demonstrated to America right here on this Monmouth County bluff."
+  },
+  {
+    "id": "allaire-village",
+    "name": "Allaire Village",
+    "coords": [40.1701, -74.1271],
+    "witness": "\"The furnace roared day and night. We made the pipes that carried water through New York City, the kettles that cooked meals on a hundred ships.\" — Howell Works account, circa 1830",
+    "evidence": "Allaire Village (originally the Howell Iron Works) was a self-sufficient 19th-century iron manufacturing village founded by James P. Allaire around 1822. At its peak it employed 500 workers who lived, worked, and were buried on the property. The works produced cast-iron pipe, hollow ware, and machinery — until cheaper Pennsylvania iron made the operation unviable by 1848.",
+    "mystery": "What caused the sudden collapse of Allaire Village's once-thriving ironworks?",
+    "choices": [
+      "A catastrophic furnace explosion destroyed the main production building",
+      "Competition from Pennsylvania iron producers, who had access to cheaper coal and better ore",
+      "The owner James Allaire went bankrupt due to failed investments in steam engines"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! The bog iron Allaire used was local but low-grade. When Pennsylvania opened its anthracite coal-fueled blast furnaces producing far superior iron at lower cost, New Jersey's charcoal-fired operations simply couldn't compete. The village fell silent almost overnight."
+  },
+  {
+    "id": "sandy-hook-lighthouse",
+    "name": "Sandy Hook Lighthouse",
+    "coords": [40.4677, -74.0007],
+    "witness": "\"It has stood since before this nation existed — through every storm, every war, every change of flag — still keeping its light.\" — National Park Service, 1964 landmark designation",
+    "evidence": "The Sandy Hook Lighthouse, lit in 1764, is the oldest surviving lighthouse in the United States. It was built by New York merchants to protect trade entering New York Harbor. During the Revolutionary War, Loyalists held the lighthouse against Patriot attempts to destroy it — both sides understood its strategic value for controlling the harbor approach.",
+    "mystery": "Why did both sides in the Revolutionary War want to control the Sandy Hook Lighthouse?",
+    "choices": [
+      "It contained a hidden cache of British arms and ammunition",
+      "Whoever controlled it could guide — or deny guidance to — ships supplying New York Harbor",
+      "Its height made it the perfect observation post for intercepting enemy signals"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! New York Harbor was the most important port in colonial America. The lighthouse guided vessels safely through the sandbar — so controlling it meant controlling resupply of the British garrison in New York. Patriots tried to destroy it; Loyalists defended it successfully."
+  },
+  {
+    "id": "monmouth-courthouse",
+    "name": "Monmouth County Courthouse",
+    "coords": [40.2654, -74.2726],
+    "witness": "\"The courthouse square has seen hangings, celebrations, riots, and dedications — it is the county's conscience made stone.\" — Freehold historian, 1976",
+    "evidence": "The courthouse in Freehold (county seat since 1714) was the center of legal and civic life in Revolutionary-era Monmouth County. The county was deeply divided — perhaps 50% Loyalist — making it a hotbed of neighbor-against-neighbor conflict. After the Revolution, Loyalists who had supported the Crown faced property confiscation and exile under New Jersey's Disqualifying Act.",
+    "mystery": "What made Monmouth County unusually dangerous for both sides during the Revolutionary War?",
+    "choices": [
+      "It was occupied by the British Army for the entire duration of the war",
+      "Its roughly equal split between Patriots and Loyalists made it a zone of brutal civil conflict",
+      "Monmouth County refused to send troops to either side, remaining officially neutral"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! With communities evenly split between Patriots and Loyalists, Monmouth County saw raiding parties, burned farms, and revenge killings between neighbors. It wasn't merely a war against the British — it was a civil war within the community itself."
+  },
+  {
+    "id": "fort-hancock",
+    "name": "Fort Hancock at Sandy Hook",
+    "coords": [40.4616, -74.0056],
+    "witness": "\"We guarded a harbor that never came under direct attack — yet we were never idle. The threat was always just over the horizon.\" — Fort Hancock soldier, WWII era",
+    "evidence": "Fort Hancock was established in 1895 to defend New York Harbor. It grew through WWI and WWII into a major coastal defense installation with massive gun batteries capable of firing shells 25 miles out to sea. During the Cold War it hosted Nike Ajax and Nike Hercules surface-to-air missile systems. The fort was decommissioned in 1974 and is now part of Gateway National Recreation Area.",
+    "mystery": "What technological shift made Fort Hancock's massive coastal gun batteries obsolete?",
+    "choices": [
+      "Radar made it possible to detect ships so far away that guns were no longer needed",
+      "The rise of air power and missiles meant naval attacks would never again approach close enough for coastal guns",
+      "Nuclear submarines could deliver warheads underwater, bypassing all surface defenses"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! After WWII, attack aircraft and long-range missiles could threaten harbors from hundreds of miles away — far beyond the range of any shore gun. Fort Hancock pivoted to Nike missile batteries to counter airborne threats, and even those were soon superseded."
+  }
+]

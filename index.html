@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>MOMExplorer — Mysteries of Monmouth</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Google Fonts: Victorian theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="app-header">
+    <div id="header-inner">
+      <span id="logo">🔍 MOMExplorer</span>
+      <span id="header-subtitle">Mysteries of Monmouth</span>
+      <button id="dossier-btn" title="View Dossier">📁 Dossier <span id="dossier-count">0</span></button>
+    </div>
+  </header>
+
+  <!-- GPS status bar -->
+  <div id="gps-bar">
+    <span id="gps-icon">📍</span>
+    <span id="gps-status">Waiting for GPS permission…</span>
+  </div>
+
+  <!-- Map container -->
+  <div id="map"></div>
+
+  <!-- Proximity toast -->
+  <div id="proximity-toast" class="hidden">🔎 A mystery is near…</div>
+
+  <!-- Case File panel (slides up from bottom) -->
+  <div id="case-panel" class="hidden">
+    <div id="case-panel-inner">
+      <button id="case-close">✕</button>
+      <div id="case-stamp">CASE FILE</div>
+      <h2 id="case-title"></h2>
+      <div id="case-witness"></div>
+      <div id="case-evidence"></div>
+      <hr class="case-divider" />
+      <div id="case-mystery-section">
+        <p id="case-mystery"></p>
+        <div id="case-choices"></div>
+        <div id="case-result" class="hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dossier overlay -->
+  <div id="dossier-panel" class="hidden">
+    <div id="dossier-inner">
+      <div class="dossier-header">
+        <h2>🗂 Detective's Dossier</h2>
+        <button id="dossier-close">✕ Close</button>
+      </div>
+      <p id="dossier-summary"></p>
+      <div id="dossier-entries"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App modules (order matters) -->
+  <script src="js/game.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/gps.js"></script>
+
+</body>
+</html>
