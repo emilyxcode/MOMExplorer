@@ -13,16 +13,30 @@ const Story = (() => {
   const STATE_KEY      = 'momexplorer_state';
   const INTRO_SEEN_KEY = 'momexplorer_intro_seen';
 
-  // Fetch story content — store promise so checkIntro() can await it
-  let storyData = null;
+  // Default story data — fetch overrides if available (fallback for file:// or offline)
+  let storyData = {
+    title: "The Vanished Chronicler",
+    intro: [
+      "My dear detective —",
+      "Dr. Elias Farrow was not a man given to fancy. For thirty years he catalogued the mundane — deeds, diaries, parish records — and drew no grand conclusions. That is what made his last letter so remarkable.",
+      "He wrote that he had found a hidden thread running through Monmouth County's entire history. Eight places. Eight moments across two centuries. At each one, he claimed, a single ordinary person quietly prevented a catastrophe — or built something that quietly endured.",
+      "He called it the 'quiet backbone.' He said the county's real history had never been written, because the people who made it had no interest in being remembered.",
+      "Three days after that letter arrived, Farrow vanished. His notes were left behind. He has not been seen since.",
+      "I have studied his notes. The thread is real. Each of his eight sites holds a mystery — a question about who was there, what they did, and why it mattered. Solve them all, and you will understand what Farrow understood.",
+      "I suspect you will find, as he did, that history rarely belongs to the people history remembers.",
+      "— Sherlock Holmes"
+    ],
+    finale_conclusion: "Holmes set down Farrow's completed journal and was quiet for a long moment.\n\n\"He was right, you know,\" he said at last. \"I spent decades looking for the extraordinary hidden behind the ordinary. Farrow found the opposite — the extraordinary hiding in plain sight, wearing the face of the ordinary.\"\n\nHe closed the cover.\n\n\"Every one of these people — Martin, Tennent, Mary Hays, the lighthouse keeper, the ironworkers, the judge, the signal operators — they were not remarkable people doing remarkable things. They were ordinary people who showed up when their moment arrived. That is the secret Dr. Farrow discovered. That is why he chose to stay.\"\n\nA long pause.\n\n\"I confess — I find I rather envy him.\""
+  };
   const _storyReady = fetch('data/story.json')
     .then(r => r.json())
     .then(d => { storyData = d; })
-    .catch(() => { storyData = { intro: [], finale_conclusion: '' }; });
+    .catch(() => { /* keep default storyData above */ });
 
   // ---- Typewriter ----
 
   function typewriterLines(lines, el, speed = 22, onDone = null) {
+    if (!lines || lines.length === 0) { if (onDone) onDone(); return; }
     let lineIdx  = 0;
     let charIdx  = 0;
     let fullText = '';

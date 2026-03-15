@@ -185,7 +185,13 @@ html, body {
   z-index: 900;
   max-height: 85vh;
   overflow-y: auto;
-  background: var(--panel-bg);
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 27px,
+    rgba(180, 140, 80, 0.07) 27px,
+    rgba(180, 140, 80, 0.07) 28px
+  ), var(--panel-bg);
   border-top: 3px solid var(--gold);
   border-radius: 16px 16px 0 0;
   box-shadow: 0 -6px 30px var(--shadow);
@@ -430,6 +436,47 @@ html, body {
   line-height: 1.5;
 }
 
+/* ---- Farrow's research notes (letter fragment) ---- */
+
+#case-farrow-notes {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--sepia-dark);
+  background: linear-gradient(to bottom right, #fdf6e3, #f8edd0);
+  border: 1px solid var(--gold-dark);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 16px 14px 14px;
+  margin-bottom: 4px;
+  white-space: pre-line;
+}
+
+#case-farrow-notes::before {
+  content: 'From the notes of Dr. Elias Farrow, 1887';
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.6rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+/* ---- Case ornament divider ---- */
+
+.case-ornament {
+  text-align: center;
+  color: var(--gold-dark);
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  opacity: 0.7;
+  margin: 14px 0;
+}
+
 /* ---- Character byline (in Case File) ---- */
 
 #case-character {
@@ -443,15 +490,37 @@ html, body {
 
 /* ---- Intro modal ---- */
 
+/* ---- Intro seal ---- */
+
+#intro-seal {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 40% 35%, #b02020, var(--red-seal) 60%, #5a0e0e);
+  border-radius: 50%;
+  border: 3px solid rgba(201, 168, 76, 0.5);
+  box-shadow: 0 0 0 6px rgba(139, 26, 26, 0.18),
+              0 6px 20px rgba(0,0,0,0.5),
+              inset 0 2px 4px rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+/* ---- Intro modal ---- */
+
 #intro-modal {
   position: fixed;
   inset: 0;
   z-index: 2000;
   background: var(--sepia-dark);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 24px;
+  overflow-y: auto;
   transition: opacity 0.6s;
 }
 
@@ -464,6 +533,14 @@ html, body {
   max-width: 520px;
   width: 100%;
   text-align: center;
+  margin: auto;
+  padding: 32px 28px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08),
+              0 0 0 7px var(--gold-dark),
+              0 16px 48px rgba(0,0,0,0.5);
+  background: rgba(30, 18, 8, 0.6);
 }
 
 #intro-from {

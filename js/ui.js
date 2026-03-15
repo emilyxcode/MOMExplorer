@@ -8,8 +8,8 @@ const UI = (() => {
   function openCaseFile(loc) {
     const panel     = document.getElementById('case-panel');
     const title     = document.getElementById('case-title');
-    const witness   = document.getElementById('case-witness');
-    const evidence  = document.getElementById('case-evidence');
+    const witness      = document.getElementById('case-witness');
+    const farrowNotes  = document.getElementById('case-farrow-notes');
     const mystery   = document.getElementById('case-mystery');
     const choices   = document.getElementById('case-choices');
     const result    = document.getElementById('case-result');
@@ -28,8 +28,8 @@ const UI = (() => {
       ? `${loc.character.name} — ${loc.character.role}`
       : '';
 
-    witness.textContent  = loc.witness;
-    evidence.textContent = loc.evidence;
+    witness.textContent     = loc.witness;
+    farrowNotes.textContent = loc.farrow_notes || '';
 
     // Already solved — show clue directly
     if (Game.isSolved(loc.id)) {

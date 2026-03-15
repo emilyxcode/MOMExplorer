@@ -8,7 +8,7 @@
       "role": "Continental Army soldier, 8th Connecticut Regiment"
     },
     "witness": "\"The heat was like a furnace — men fell not from musket balls, but from the sun itself.\" — Private Joseph Plumb Martin, Continental Army, June 28, 1778",
-    "evidence": "On the hottest day of 1778, the Battle of Monmouth turned on a single officer's decision. General Charles Lee commanded the Continental vanguard — then, without clear orders, began a full retreat. Washington, riding forward to rally his men, encountered Lee and reportedly unleashed a fury of words rarely heard from the General.",
+    "farrow_notes": "My notes, assembled from Martin's memoir and the regimental records at Trenton: the engagement of June 28th, 1778 was nearly a catastrophe of our own making. General Lee commanded the advance — then withdrew without authority, turning the vanguard around in full retreat. Washington rode into the chaos himself. What followed was either the salvation of the Continental Army or its greatest act of stubbornness, depending on who survived to tell it.\n\nThe temperature reached one hundred degrees. Men fell from the heat more than from the guns. And yet — when Washington appeared in person at the front of the line, the retreat stopped. The men turned around and held.",
     "mystery": "What did General Lee's unauthorized retreat ultimately reveal?",
     "choices": [
       "That the British Army was unbeatable in open battle",
@@ -28,7 +28,7 @@
       "role": "Presbyterian minister and Revolutionary War chaplain"
     },
     "witness": "\"The church and its yard were filled with the groans of the dying. Every pew became a stretcher.\" — Reverend William Tennent III, July 1778",
-    "evidence": "Built in 1751, Old Tennent Church sits on a ridge that provided a commanding view of the battlefield. During and after the Battle of Monmouth, it served as a field hospital for both Continental and British wounded. Cannonball scars reportedly still mark nearby trees.",
+    "farrow_notes": "Built in 1751, this church sits on a ridge that looks across the entire battlefield. During the engagement, Tennent opened the doors to the wounded — Continental and British alike. He drew no distinction. I found his private correspondence tucked behind the vestry pulpit.\n\nHe wrote to his wife: 'I did not ask them which side. I only asked them where it hurt.' The ridge, as I confirmed by standing at its crest this morning, provides an unobstructed view across miles of rolling ground — invaluable to any commander trying to read a battle spread across a dozen fields at once.",
     "mystery": "Why was this church's hilltop location strategically significant during the battle?",
     "choices": [
       "It was used as a fortified gun emplacement by Washington's artillery",
@@ -48,7 +48,7 @@
       "role": "Camp follower, wife of artilleryman William Hays"
     },
     "witness": "\"She was a camp follower — a soldier's wife carrying water under fire. Whether she fired the cannon herself, history has debated for two centuries.\" — Historian John Landis, 1905",
-    "evidence": "Mary Ludwig Hays, wife of artilleryman William Hays, is the most likely historical figure behind the 'Molly Pitcher' legend. She carried water to overheated soldiers and cannon during the Battle of Monmouth. Some accounts claim she stepped to her husband's cannon when he collapsed from heat stroke.",
+    "farrow_notes": "I have spent three days in Freehold searching for her. Mary Ludwig Hays. The records are sparse — she was not the kind of person official records were made for.\n\nWhat I have assembled: her husband William worked an artillery piece during the battle. She carried water from this well to the overheating soldiers and cannon throughout the engagement. Several accounts suggest that when William collapsed from heat stroke, she stepped to his place at the gun. Whether she fired it, I cannot confirm with certainty. Whether the distinction matters, I find myself less certain than I expected.",
     "mystery": "What does the 'Molly Pitcher' legend actually reveal about women in the Revolutionary War?",
     "choices": [
       "Women were officially enlisted in the Continental Army under secret orders",
@@ -68,7 +68,7 @@
       "role": "Inventor, demonstrating wireless telegraphy in America, 1899"
     },
     "witness": "\"No sailor who rounded Sandy Hook could miss them — two burning eyes on the bluff, keeping the watch we could not.\" — Captain's log, 1862",
-    "evidence": "The Twin Lights lighthouse in Highlands was built in 1862 to replace an earlier 1828 structure. It holds the distinction of being the first lighthouse in the United States to use the Fresnel lens, and in 1899 it was the site where Guglielmo Marconi first demonstrated wireless telegraphy in America — transmitting reports of the America's Cup yacht race to a New York newspaper.",
+    "farrow_notes": "The lighthouse keeper's log from 1899 notes, with considerable understatement: 'Mr. Marconi arrived today with his equipment. He says he intends to send words through the air.'\n\nThe keeper thought him eccentric. Within forty-eight hours, wireless signals were being transmitted from this bluff to vessels at sea — reporting the America's Cup yacht race, live, to a New York newspaper. The keeper's later entry reads simply: 'He was not, apparently, eccentric.' The lighthouse itself was already old by then — built in 1862 to replace an 1828 structure. It had seen many things, but perhaps not this.",
     "mystery": "What historic first happened at Twin Lights in 1899?",
     "choices": [
       "The first electric lighthouse beam in the United States was activated here",
@@ -88,7 +88,7 @@
       "role": "Industrialist and founder of the Howell Iron Works"
     },
     "witness": "\"The furnace roared day and night. We made the pipes that carried water through New York City, the kettles that cooked meals on a hundred ships.\" — Howell Works account, circa 1830",
-    "evidence": "Allaire Village (originally the Howell Iron Works) was a self-sufficient 19th-century iron manufacturing village founded by James P. Allaire around 1822. At its peak it employed 500 workers who lived, worked, and were buried on the property. The works produced cast-iron pipe, hollow ware, and machinery — until cheaper Pennsylvania iron made the operation unviable by 1848.",
+    "farrow_notes": "At its height in the 1830s, this was not simply an ironworks — it was an entire world. Five hundred people lived within walking distance of the forge. They had a church, a school, a general store. Allaire's operation produced the iron pipes that carried fresh water under the streets of New York City.\n\nI walked the village today. The buildings are still standing — remarkably intact for structures abandoned forty years ago. The forge is cold. The school has saplings growing through its floorboards. The church bell is still in its tower. I do not understand why it fell silent so suddenly until I examined the account books in the manager's office.",
     "mystery": "What caused the sudden collapse of Allaire Village's once-thriving ironworks?",
     "choices": [
       "A catastrophic furnace explosion destroyed the main production building",
@@ -108,7 +108,7 @@
       "role": "Loyalist lighthouse keeper, Revolutionary War era"
     },
     "witness": "\"It has stood since before this nation existed — through every storm, every war, every change of flag — still keeping its light.\" — National Park Service, 1964 landmark designation",
-    "evidence": "The Sandy Hook Lighthouse, lit in 1764, is the oldest surviving lighthouse in the United States. It was built by New York merchants to protect trade entering New York Harbor. During the Revolutionary War, Loyalists held the lighthouse against Patriot attempts to destroy it — both sides understood its strategic value for controlling the harbor approach.",
+    "farrow_notes": "It was lit in 1764 — ten years before the Revolution began. I have been trying to calculate what it has outlasted: the Colonial period, the Revolution itself, the War of 1812, the entire career of Napoleon, the Civil War, and whatever comes next.\n\nDuring the Revolution, both sides understood its value immediately. New York Harbor was the most important port in North America. The lighthouse guided vessels safely over the sandbar at the harbor entrance. Whoever controlled it could guide friendly ships in — or hold back enemy resupply. The Patriots attempted to destroy it. The Loyalist keeper and a garrison of regulars held it throughout the war.",
     "mystery": "Why did both sides in the Revolutionary War want to control the Sandy Hook Lighthouse?",
     "choices": [
       "It contained a hidden cache of British arms and ammunition",
@@ -128,7 +128,7 @@
       "role": "Continental Army officer and Monmouth County judge"
     },
     "witness": "\"The courthouse square has seen hangings, celebrations, riots, and dedications — it is the county's conscience made stone.\" — Freehold historian, 1976",
-    "evidence": "The courthouse in Freehold (county seat since 1714) was the center of legal and civic life in Revolutionary-era Monmouth County. The county was deeply divided — perhaps 50% Loyalist — making it a hotbed of neighbor-against-neighbor conflict. After the Revolution, Loyalists who had supported the Crown faced property confiscation and exile under New Jersey's Disqualifying Act.",
+    "farrow_notes": "The county seat since 1714 — this courthouse has presided over more of Monmouth's history than any other single building. I spent yesterday in the archive below it. What struck me most was not the famous cases but the ordinary ones: neighbor against neighbor, farm against farm, the small bitter disputes of a community at war with itself.\n\nMonmouth County was deeply divided — perhaps fifty percent Loyalist. When the war ended, the reckoning came here. Properties were confiscated. Families were exiled to Nova Scotia. Judge Forman presided. I found his personal ledger. He prosecuted men he had known for thirty years. Some wept at the bar. He recorded their tears, and his own doubts, in careful handwriting.",
     "mystery": "What made Monmouth County unusually dangerous for both sides during the Revolutionary War?",
     "choices": [
       "It was occupied by the British Army for the entire duration of the war",
@@ -148,7 +148,7 @@
       "role": "WWII-era signals operator, Fort Hancock, 1943"
     },
     "witness": "\"We guarded a harbor that never came under direct attack — yet we were never idle. The threat was always just over the horizon.\" — Fort Hancock soldier, WWII era",
-    "evidence": "Fort Hancock was established in 1895 to defend New York Harbor. It grew through WWI and WWII into a major coastal defense installation with massive gun batteries capable of firing shells 25 miles out to sea. During the Cold War it hosted Nike Ajax and Nike Hercules surface-to-air missile systems. The fort was decommissioned in 1974 and is now part of Gateway National Recreation Area.",
+    "farrow_notes": "The fort was built for a world that changed before its concrete was fully cured. Established in 1895, its guns were designed to destroy battleships approaching the harbor mouth. But battleships stopped approaching — aircraft and long-range ordnance rendered close-harbor assault obsolete before the first major test came.\n\nThe fort adapted. It pivoted to anti-aircraft batteries, then to radar, then to Nike missiles during the Cold War. Each technology it acquired was already aging by the time it was fully installed. And yet — the people inside kept doing the work. Sergeant Voss's signals unit was tracking aircraft over the Atlantic for two full years before the coastal guns below them were even formally decommissioned.",
     "mystery": "What technological shift made Fort Hancock's massive coastal gun batteries obsolete?",
     "choices": [
       "Radar made it possible to detect ships so far away that guns were no longer needed",
