@@ -8,9 +8,10 @@
  */
 
 const Story = (() => {
-  const NAME_KEY  = 'momexplorer_name';
-  const POS_KEY   = 'momexplorer_pos';
-  const STATE_KEY = 'momexplorer_state';
+  const NAME_KEY       = 'momexplorer_name';
+  const POS_KEY        = 'momexplorer_pos';
+  const STATE_KEY      = 'momexplorer_state';
+  const INTRO_SEEN_KEY = 'momexplorer_intro_seen';
 
   // Fetch story content from data file; resolves before checkIntro() is ever called
   let storyData = null;
@@ -69,9 +70,13 @@ const Story = (() => {
     const titleEl = document.getElementById('intro-title');
     if (storyData?.title) titleEl.textContent = storyData.title;
 
-    // Show modal and start typewriter
+    // Show modal — play typewriter only on first ever visit
     modal.classList.remove('hidden');
-    typewriterLines(storyData?.intro || [], textEl);
+    if (!localStorage.getItem(INTRO_SEEN_KEY)) {
+      typewriterLines(storyData?.intro || [], textEl);
+    } else {
+      textEl.innerHTML = (storyData?.intro || []).join('<br><br>');
+    }
 
     function getName() {
       const name = nameInput.value.trim();
@@ -92,15 +97,15 @@ const Story = (() => {
 
     newBtn.addEventListener('click', () => {
       const name = getName();
-      // Clear saved progress and position, keep name
       localStorage.removeItem(STATE_KEY);
       localStorage.removeItem(POS_KEY);
-      // Reload so game state resets cleanly
       localStorage.setItem(NAME_KEY, name);
+      localStorage.setItem(INTRO_SEEN_KEY, '1');
       location.reload();
     }, { once: true });
 
     loadBtn.addEventListener('click', () => {
+      localStorage.setItem(INTRO_SEEN_KEY, '1');
       dismissModal(getName());
     }, { once: true });
   }
