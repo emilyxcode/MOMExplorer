@@ -16,6 +16,18 @@ const UI = (() => {
 
     // Populate content
     title.textContent    = loc.name;
+
+    // Character byline
+    let charEl = document.getElementById('case-character');
+    if (!charEl) {
+      charEl = document.createElement('div');
+      charEl.id = 'case-character';
+      witness.parentNode.insertBefore(charEl, witness);
+    }
+    charEl.textContent = loc.character
+      ? `${loc.character.name} — ${loc.character.role}`
+      : '';
+
     witness.textContent  = loc.witness;
     evidence.textContent = loc.evidence;
 
@@ -56,6 +68,7 @@ const UI = (() => {
       Game.solve(loc.id, loc.solved_text);
       MapView.updateMarker(loc.id);
       updateDossierCount();
+      if (typeof Story !== 'undefined') Story.onSolve(loc, MapView.getLocations());
 
       resultEl.textContent = `✅ Elementary! ${loc.solved_text}`;
       resultEl.className   = 'result-correct';
@@ -158,6 +171,7 @@ const UI = (() => {
     document.getElementById('dossier-btn').addEventListener('click', openDossier);
     document.getElementById('dossier-close').addEventListener('click', closeDossier);
     updateDossierCount();
+    if (typeof Story !== 'undefined') Story.checkIntro();
   }
 
   return { init, openCaseFile, closeCaseFile, openDossier, closeDossier,
@@ -170,4 +184,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   UI.init();
   GPS.start();
   UI.updateDossierCount();
+  if (typeof PlayerGame !== 'undefined') PlayerGame.init();
 });

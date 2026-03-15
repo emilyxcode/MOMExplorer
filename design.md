@@ -110,3 +110,4 @@ MOMExplorer/
 | 2026-03-15 | 75m unlock radius | Accurate enough for on-foot GPS, forgiving of typical mobile GPS drift |
 | 2026-03-15 | 8 initial sites | Scope-appropriate MVP; all sites have strong historical content |
 | 2026-03-15 | localStorage only | Zero infrastructure; users play offline after first load |
+| 2026-03-15 | Virtual keyboard navigation | Arrow keys / WASD move a player marker on the Leaflet map; 500m proximity unlocks sites. GPS remains optional. No physical visit required. |

@@ -103,5 +103,6 @@ const MapView = (() => {
     }
   }
 
-  return { init, updateMarker, getLocations, showUserPosition };
+  return { init, updateMarker, getLocations, showUserPosition,
+           get _leafletMap() { return leafletMap; } };
 })();

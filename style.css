@@ -1,0 +1,157 @@
+/* =============================================
+   MOMExplorer — Root stylesheet (virtual RPG mode)
+   Imports the Victorian theme from css/style.css
+   and adds game-specific layout overrides.
+   ============================================= */
+
+@import url('css/style.css');
+
+/* ---- Full-viewport map ---- */
+
+body {
+  overflow: hidden;
+}
+
+#map {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  /* No header/GPS-bar offset — map fills everything */
+  top: 0;
+}
+
+/* ---- HUD overlay ---- */
+
+#hud {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 500;
+  background: rgba(59, 42, 26, 0.88);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: 'Lora', serif;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  min-width: 200px;
+  backdrop-filter: blur(4px);
+}
+
+#hud-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+
+#hud span {
+  color: var(--parchment-dark);
+}
+
+#action {
+  margin-top: 6px;
+  font-style: italic;
+  opacity: 0.75;
+  font-size: 0.72rem;
+}
+
+/* ---- Pan controls (bottom-left, mobile) ---- */
+
+#controls {
+  position: fixed;
+  bottom: 90px;
+  left: 12px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+#controls-row {
+  display: flex;
+  gap: 4px;
+}
+
+#controls button {
+  width: 40px;
+  height: 40px;
+  background: rgba(59, 42, 26, 0.85);
+  color: var(--gold);
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  backdrop-filter: blur(4px);
+}
+
+#controls button:hover {
+  background: var(--gold-dark);
+  color: var(--parchment);
+}
+
+/* ---- Dossier button (bottom-right) ---- */
+
+#dossier-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 16px;
+  z-index: 500;
+  background: var(--sepia-dark);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+#dossier-btn:hover {
+  background: var(--gold-dark);
+  color: var(--parchment);
+}
+
+#dossier-count {
+  display: inline-block;
+  background: var(--red-seal);
+  color: #fff;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 0 3px;
+  margin-left: 4px;
+}
+
+/* ---- Player marker ---- */
+
+.player-marker {
+  font-size: 1.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  animation: player-bob 1.5s ease-in-out infinite;
+}
+
+@keyframes player-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* ---- Override: case-panel sits above map ---- */
+
+#case-panel  { z-index: 600; }
+#dossier-panel { z-index: 650; }
+#proximity-toast { z-index: 550; bottom: 110px; }

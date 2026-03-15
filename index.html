@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,32 +8,40 @@
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <!-- Google Fonts: Victorian theme -->
+  <!-- Victorian fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Header -->
-  <header id="app-header">
-    <div id="header-inner">
-      <span id="logo">🔍 MOMExplorer</span>
-      <span id="header-subtitle">Mysteries of Monmouth</span>
-      <button id="dossier-btn" title="View Dossier">📁 Dossier <span id="dossier-count">0</span></button>
-    </div>
-  </header>
+  <!-- Map fills the full viewport -->
+  <div id="map"></div>
 
-  <!-- GPS status bar -->
-  <div id="gps-bar">
-    <span id="gps-icon">📍</span>
-    <span id="gps-status">Waiting for GPS permission…</span>
+  <!-- HUD overlay (top-left) -->
+  <div id="hud">
+    <div id="hud-title">🔍 MOMExplorer</div>
+    <div>Position: <span id="pos">Monmouth County</span></div>
+    <div>Nearest: <span id="landmark">—</span></div>
+    <div>Distance: <span id="distance">—</span></div>
+    <div id="action">Use arrow keys or WASD to explore</div>
   </div>
 
-  <!-- Map container -->
-  <div id="map"></div>
+  <!-- Pan controls (mobile-friendly) -->
+  <div id="controls">
+    <button id="panUp"    type="button">▲</button>
+    <div id="controls-row">
+      <button id="panLeft"  type="button">◀</button>
+      <button id="resetPan" type="button" title="Return to start">⌂</button>
+      <button id="panRight" type="button">▶</button>
+    </div>
+    <button id="panDown"  type="button">▼</button>
+  </div>
+
+  <!-- Dossier button -->
+  <button id="dossier-btn">📁 Dossier <span id="dossier-count">0</span></button>
 
   <!-- Proximity toast -->
   <div id="proximity-toast" class="hidden">🔎 A mystery is near…</div>
@@ -55,6 +63,36 @@
     </div>
   </div>
 
+  <!-- Intro modal (shown on first load) -->
+  <div id="intro-modal">
+    <div id="intro-inner">
+      <div id="intro-from">A letter from 221B Baker Street</div>
+      <h1 id="intro-title">The Vanished Chronicler</h1>
+      <div id="intro-text"></div>
+      <button id="intro-start">Begin the Investigation</button>
+    </div>
+  </div>
+
+  <!-- Chapter banner (slides in after solving a site) -->
+  <div id="chapter-banner" class="hidden">
+    <div id="chapter-banner-inner">
+      <div id="chapter-label">📖 Chapter Revealed</div>
+      <p id="chapter-text"></p>
+      <button id="chapter-dismiss">Continue →</button>
+    </div>
+  </div>
+
+  <!-- Finale overlay (shown when all 8 are solved) -->
+  <div id="finale-modal" class="hidden">
+    <div id="finale-inner">
+      <div id="finale-stamp">CASE CLOSED</div>
+      <h2 id="finale-title">🔍 The Complete Chronicle of Dr. Elias Farrow</h2>
+      <div id="finale-chapters"></div>
+      <div id="finale-conclusion"></div>
+      <button id="finale-close">Return to the Map</button>
+    </div>
+  </div>
+
   <!-- Dossier overlay -->
   <div id="dossier-panel" class="hidden">
     <div id="dossier-inner">
@@ -70,11 +108,14 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- App modules (order matters) -->
+  <!-- App modules -->
   <script src="js/game.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/story.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/gps.js"></script>
+  <!-- Player movement (runs after DOMContentLoaded in ui.js bootstraps the map) -->
+  <script src="game.js"></script>
 
 </body>
 </html>
