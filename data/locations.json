@@ -9,6 +9,24 @@
     },
     "witness": "\"The heat was like a furnace — men fell not from musket balls, but from the sun itself.\" — Private Joseph Plumb Martin, Continental Army, June 28, 1778",
     "farrow_notes": "My notes, assembled from Martin's memoir and the regimental records at Trenton: the engagement of June 28th, 1778 was nearly a catastrophe of our own making. General Lee commanded the advance — then withdrew without authority, turning the vanguard around in full retreat. Washington rode into the chaos himself. What followed was either the salvation of the Continental Army or its greatest act of stubbornness, depending on who survived to tell it.\n\nThe temperature reached one hundred degrees. Men fell from the heat more than from the guns. And yet — when Washington appeared in person at the front of the line, the retreat stopped. The men turned around and held.",
+    "examination": {
+      "claim": "\"The retreat was Lee's cowardice. Without Washington riding into that line himself, we would have broken and scattered before nightfall.\"",
+      "options": [
+        {
+          "label": "Was Lee truly a coward?",
+          "response": "Coward — or calculating? Lee believed the attack was already lost. He pulled back without authority, which was the greater crime. But Washington appeared at the front of the retreating line — alone, on horseback, in full view of the enemy — and the men simply stopped running. They could not abandon him."
+        },
+        {
+          "label": "How did one man reverse a retreat?",
+          "response": "Washington rode directly into the confusion. Not from behind — from the front, toward the enemy, facing the retreating men. They had to turn around to face him. Once they faced him, they faced the British too. That is all it took. One man. In full view. Refusing to move."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He was afraid — he found a pattern that someone with authority was determined to keep buried.", "tag": "endangered" },
+        { "text": "He found what he came for — proof that one person's refusal to retreat can reverse a disaster.", "tag": "chose_to_stay" },
+        { "text": "He uncovered something in the regimental records that contradicts the official account.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "What did General Lee's unauthorized retreat ultimately reveal?",
     "choices": [
       "That the British Army was unbeatable in open battle",
@@ -29,6 +47,24 @@
     },
     "witness": "\"The church and its yard were filled with the groans of the dying. Every pew became a stretcher.\" — Reverend William Tennent III, July 1778",
     "farrow_notes": "Built in 1751, this church sits on a ridge that looks across the entire battlefield. During the engagement, Tennent opened the doors to the wounded — Continental and British alike. He drew no distinction. I found his private correspondence tucked behind the vestry pulpit.\n\nHe wrote to his wife: 'I did not ask them which side. I only asked them where it hurt.' The ridge, as I confirmed by standing at its crest this morning, provides an unobstructed view across miles of rolling ground — invaluable to any commander trying to read a battle spread across a dozen fields at once.",
+    "examination": {
+      "claim": "\"I treated both sides equally. Every man who came through those doors was God's creature, not a general's property. The Loyalists threatened me twice. I ignored them.\"",
+      "options": [
+        {
+          "label": "Wasn't that dangerous?",
+          "response": "More than once. A patrol arrived demanding I stop treating their enemies. I told them: a man bleeding on my floor is not an enemy. He is simply bleeding. They could do nothing with that answer. Useful work has a way of being permitted even by those who disapprove of it."
+        },
+        {
+          "label": "How did you decide who to treat first?",
+          "response": "Whoever was closest to dying. That was my only rule. I kept no records of which side they came from. The churchyard outside is the only record — they lie together there now, in no particular order."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found evidence that Tennent's neutrality made him a target — and recognized the same risk in himself.", "tag": "endangered" },
+        { "text": "He found the same principle here that appears at every site: do the obvious thing, ask no permission, keep no score.", "tag": "chose_to_stay" },
+        { "text": "He found something in Tennent's private letters — something that had been hidden there deliberately.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "Why was this church's hilltop location strategically significant during the battle?",
     "choices": [
       "It was used as a fortified gun emplacement by Washington's artillery",
@@ -49,6 +85,24 @@
     },
     "witness": "\"She was a camp follower — a soldier's wife carrying water under fire. Whether she fired the cannon herself, history has debated for two centuries.\" — Historian John Landis, 1905",
     "farrow_notes": "I have spent three days in Freehold searching for her. Mary Ludwig Hays. The records are sparse — she was not the kind of person official records were made for.\n\nWhat I have assembled: her husband William worked an artillery piece during the battle. She carried water from this well to the overheating soldiers and cannon throughout the engagement. Several accounts suggest that when William collapsed from heat stroke, she stepped to his place at the gun. Whether she fired it, I cannot confirm with certainty. Whether the distinction matters, I find myself less certain than I expected.",
+    "examination": {
+      "claim": "\"I carried water. That is all I will say I did. What the soldiers made of it afterward — that is their story, not mine. I did not ask to be a legend.\"",
+      "options": [
+        {
+          "label": "Are you saying the legend isn't true?",
+          "response": "I am saying I did what was needed. Whether I fired the cannon — I cannot say now what is certainly true. I only know what I did in that moment. The legend is what other people needed to believe about that day. I did not give it to them. They made it themselves."
+        },
+        {
+          "label": "What exactly happened at the cannon?",
+          "response": "My husband fell. The gun was unmanned. There was no one else near enough, and the battle was still going. So I did what had to be done. I did not think it was heroic. I thought it was obvious. Heroic is what people call it when they want to make you into something more useful than a soldier's wife."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found here the same erasure that follows all his subjects — and recognized it in his own situation.", "tag": "found_and_fled" },
+        { "text": "He found that ordinary people do the obvious thing without requiring it to be heroic — and that this was exactly what he himself needed to do.", "tag": "chose_to_stay" },
+        { "text": "He was warned, at this location, not to continue questioning the official record.", "tag": "endangered" }
+      ]
+    },
     "mystery": "What does the 'Molly Pitcher' legend actually reveal about women in the Revolutionary War?",
     "choices": [
       "Women were officially enlisted in the Continental Army under secret orders",
@@ -69,6 +123,24 @@
     },
     "witness": "\"No sailor who rounded Sandy Hook could miss them — two burning eyes on the bluff, keeping the watch we could not.\" — Captain's log, 1862",
     "farrow_notes": "The lighthouse keeper's log from 1899 notes, with considerable understatement: 'Mr. Marconi arrived today with his equipment. He says he intends to send words through the air.'\n\nThe keeper thought him eccentric. Within forty-eight hours, wireless signals were being transmitted from this bluff to vessels at sea — reporting the America's Cup yacht race, live, to a New York newspaper. The keeper's later entry reads simply: 'He was not, apparently, eccentric.' The lighthouse itself was already old by then — built in 1862 to replace an 1828 structure. It had seen many things, but perhaps not this.",
+    "examination": {
+      "claim": "\"The wire was simply a constraint. Remove the wire, and information becomes as free as light. Every age believes this idea is new. It is never new.\"",
+      "options": [
+        {
+          "label": "Wasn't the lighthouse already doing this?",
+          "response": "Precisely. The lighthouse had been transmitting information through darkness for centuries — to strangers it would never meet. I removed the limitation of distance. But the principle — light sent outward to guide an unknown recipient — I did not invent that. I found it already standing on this bluff."
+        },
+        {
+          "label": "What did you actually send that first day?",
+          "response": "Race results. Yes. The first wireless transmission in America was sports journalism. The future often arrives in the most ordinary wrapping. Everyone expects the revolutionary moment to be solemn. It almost never is."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found here that every generation rediscovers the same truth — and that his own discovery was no different.", "tag": "chose_to_stay" },
+        { "text": "He found a more recent signal from this location — something transmitted long after 1899, to no recorded recipient.", "tag": "endangered" },
+        { "text": "He found that the lighthouse's connection to Marconi masked a use of this site that continued into his own time.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "What historic first happened at Twin Lights in 1899?",
     "choices": [
       "The first electric lighthouse beam in the United States was activated here",
@@ -89,6 +161,24 @@
     },
     "witness": "\"The furnace roared day and night. We made the pipes that carried water through New York City, the kettles that cooked meals on a hundred ships.\" — Howell Works account, circa 1830",
     "farrow_notes": "At its height in the 1830s, this was not simply an ironworks — it was an entire world. Five hundred people lived within walking distance of the forge. They had a church, a school, a general store. Allaire's operation produced the iron pipes that carried fresh water under the streets of New York City.\n\nI walked the village today. The buildings are still standing — remarkably intact for structures abandoned forty years ago. The forge is cold. The school has saplings growing through its floorboards. The church bell is still in its tower. I do not understand why it fell silent so suddenly until I examined the account books in the manager's office.",
+    "examination": {
+      "claim": "\"We built everything here. Church, school, forge, homes. Five hundred people. We lacked for nothing except time. Progress moved on and did not look back.\"",
+      "options": [
+        {
+          "label": "What happened to the five hundred?",
+          "response": "They scattered. Pennsylvania iron was cheaper — better coal, better ore, better location. We couldn't compete on price. Some went to Nova Scotia, some to Ohio, some back to the farms they'd left. The buildings stayed. The community did not. You cannot rebuild a community from buildings alone."
+        },
+        {
+          "label": "Could anything have saved the village?",
+          "response": "A different location. Different geology. But you cannot move a bog iron deposit. We were entirely dependent on what the land gave us, and the land gave us what it could. When it wasn't enough, we ended. Not through failure. Simply through becoming inconvenient to the future."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found in Allaire's collapse the same pattern of erasure — extraordinary communities made invisible by circumstance.", "tag": "chose_to_stay" },
+        { "text": "He found that Allaire's collapse was not purely economic — someone had a reason to accelerate it.", "tag": "endangered" },
+        { "text": "He found documents in the account room that had been deliberately misfiled among the routine ledgers.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "What caused the sudden collapse of Allaire Village's once-thriving ironworks?",
     "choices": [
       "A catastrophic furnace explosion destroyed the main production building",
@@ -109,6 +199,24 @@
     },
     "witness": "\"It has stood since before this nation existed — through every storm, every war, every change of flag — still keeping its light.\" — National Park Service, 1964 landmark designation",
     "farrow_notes": "It was lit in 1764 — ten years before the Revolution began. I have been trying to calculate what it has outlasted: the Colonial period, the Revolution itself, the War of 1812, the entire career of Napoleon, the Civil War, and whatever comes next.\n\nDuring the Revolution, both sides understood its value immediately. New York Harbor was the most important port in North America. The lighthouse guided vessels safely over the sandbar at the harbor entrance. Whoever controlled it could guide friendly ships in — or hold back enemy resupply. The Patriots attempted to destroy it. The Loyalist keeper and a garrison of regulars held it throughout the war.",
+    "examination": {
+      "claim": "\"I kept the light burning for forty years. Neither army, nor storm, nor any letter with a general's seal could make me extinguish it. Both sides tried. Neither succeeded.\"",
+      "options": [
+        {
+          "label": "Were you ever directly ordered to put it out?",
+          "response": "By both sides. The Patriots sent a party with axes and tar. I told them: a dark lighthouse kills more of your men than the British will. Ships carrying your own supplies will run aground on this bar if I go dark. They lowered their axes. Useful things survive ideology."
+        },
+        {
+          "label": "How did you justify that to the British?",
+          "response": "I told them the same thing. A light serves whoever is at sea. The British needed the harbor as badly as anyone — their entire New York garrison depended on supply ships making that bar safely. The light wasn't political. It was simply necessary. And necessary things have a way of being permitted."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found in Tinton's reasoning the heart of the pattern — 'useful things survive ideology' — the exact phrase in his final note.", "tag": "chose_to_stay" },
+        { "text": "He found evidence of a more recent use of the lighthouse's underground storage rooms.", "tag": "endangered" },
+        { "text": "He found a coded entry in the 1776 keeper's log that no one had decoded in over a century.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "Why did both sides in the Revolutionary War want to control the Sandy Hook Lighthouse?",
     "choices": [
       "It contained a hidden cache of British arms and ammunition",
@@ -129,6 +237,24 @@
     },
     "witness": "\"The courthouse square has seen hangings, celebrations, riots, and dedications — it is the county's conscience made stone.\" — Freehold historian, 1976",
     "farrow_notes": "The county seat since 1714 — this courthouse has presided over more of Monmouth's history than any other single building. I spent yesterday in the archive below it. What struck me most was not the famous cases but the ordinary ones: neighbor against neighbor, farm against farm, the small bitter disputes of a community at war with itself.\n\nMonmouth County was deeply divided — perhaps fifty percent Loyalist. When the war ended, the reckoning came here. Properties were confiscated. Families were exiled to Nova Scotia. Judge Forman presided. I found his personal ledger. He prosecuted men he had known for thirty years. Some wept at the bar. He recorded their tears, and his own doubts, in careful handwriting.",
+    "examination": {
+      "claim": "\"I prosecuted men I had known for thirty years. I do not claim it was just. I claim only that it was necessary. A community without order is no community at all.\"",
+      "options": [
+        {
+          "label": "Were any of them truly innocent?",
+          "response": "I cannot say — not entirely. Certainty was not available. I had evidence, law, and a community that needed to believe justice was being done. Some men I prosecuted were guilty of far less than the charge. I wrote this in my private ledger. I do not regret the writing. I regret the doing. But I would do it again."
+        },
+        {
+          "label": "How did you decide who to prosecute?",
+          "response": "Evidence first. Then judgment. I could not prosecute some men who had actively aided the British, because the evidence was insufficient. I could prosecute others who had done far less, because the evidence was there. Justice is not clean. It is simply the best option remaining once every cleaner option has been exhausted."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He found a name in Forman's ledger — someone who had investigated this same thread forty years before him, and vanished.", "tag": "endangered" },
+        { "text": "He found Forman's principle — act imperfectly in the absence of certainty — and recognized it as his own situation.", "tag": "chose_to_stay" },
+        { "text": "He found a sealed box in the archive containing a partial manuscript by someone who had traced the same eight sites in 1847.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "What made Monmouth County unusually dangerous for both sides during the Revolutionary War?",
     "choices": [
       "It was occupied by the British Army for the entire duration of the war",
@@ -149,6 +275,24 @@
     },
     "witness": "\"We guarded a harbor that never came under direct attack — yet we were never idle. The threat was always just over the horizon.\" — Fort Hancock soldier, WWII era",
     "farrow_notes": "The fort was built for a world that changed before its concrete was fully cured. Established in 1895, its guns were designed to destroy battleships approaching the harbor mouth. But battleships stopped approaching — aircraft and long-range ordnance rendered close-harbor assault obsolete before the first major test came.\n\nThe fort adapted. It pivoted to anti-aircraft batteries, then to radar, then to Nike missiles during the Cold War. Each technology it acquired was already aging by the time it was fully installed. And yet — the people inside kept doing the work. Sergeant Voss's signals unit was tracking aircraft over the Atlantic for two full years before the coastal guns below them were even formally decommissioned.",
+    "examination": {
+      "claim": "\"We tracked aircraft over an ocean no enemy ever crossed. You might call that futile. I call it the reason they never crossed it. The work isn't meaningful because of what it finds. It's meaningful because it is done.\"",
+      "options": [
+        {
+          "label": "Did you ever doubt the work was meaningful?",
+          "response": "Every day. We were watching for something that never came. But the moment you stop watching is the moment it comes. You cannot stop watching because nothing has happened yet. That is precisely when you must keep watching. The absence of catastrophe is not an accident. It is the result of continued presence."
+        },
+        {
+          "label": "What happened to the unit when it was decommissioned?",
+          "response": "They thanked us for our service and handed the land to the park service. The guns that replaced the guns that replaced ours were decommissioned twenty years after we were. The lighthouse is still standing. It is the only thing here that outlasted all of us. Perhaps that says something."
+        }
+      ],
+      "farrow_options": [
+        { "text": "He came here last, found the final piece of his pattern, and then chose to stay — to become part of what he had spent his life recording.", "tag": "chose_to_stay" },
+        { "text": "He was followed to this location — and never came back from the dunes at the point.", "tag": "endangered" },
+        { "text": "He burned his final pages here deliberately — to protect something, or someone, connected to this site.", "tag": "found_and_fled" }
+      ]
+    },
     "mystery": "What technological shift made Fort Hancock's massive coastal gun batteries obsolete?",
     "choices": [
       "Radar made it possible to detect ships so far away that guns were no longer needed",

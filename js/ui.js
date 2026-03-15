@@ -8,16 +8,13 @@ const UI = (() => {
   function openCaseFile(loc) {
     const panel     = document.getElementById('case-panel');
     const title     = document.getElementById('case-title');
-    const witness      = document.getElementById('case-witness');
-    const farrowNotes  = document.getElementById('case-farrow-notes');
-    const mystery   = document.getElementById('case-mystery');
-    const choices   = document.getElementById('case-choices');
-    const result    = document.getElementById('case-result');
+    const witness   = document.getElementById('case-witness');
+    const farrowNotes = document.getElementById('case-farrow-notes');
+    const section   = document.getElementById('case-mystery-section');
 
-    // Populate content
-    title.textContent    = loc.name;
+    // Static header content
+    title.textContent = loc.name;
 
-    // Character byline
     let charEl = document.getElementById('case-character');
     if (!charEl) {
       charEl = document.createElement('div');
@@ -31,35 +28,126 @@ const UI = (() => {
     witness.textContent     = loc.witness;
     farrowNotes.textContent = loc.farrow_notes || '';
 
-    // Already solved — show clue directly
+    // Dynamic section content
     if (Game.isSolved(loc.id)) {
-      mystery.textContent = loc.mystery;
-      choices.innerHTML   = '';
-      result.textContent  = `🔎 ${loc.solved_text}`;
-      result.className    = 'result-solved';
-      result.classList.remove('hidden');
+      renderSolved(loc, section);
     } else {
-      // Fresh / unanswered
-      mystery.textContent = loc.mystery;
-      choices.innerHTML   = '';
-      result.className    = 'hidden';
-      result.textContent  = '';
-
-      loc.choices.forEach((text, idx) => {
-        const btn = document.createElement('button');
-        btn.className   = 'choice-btn';
-        btn.textContent = text;
-        btn.addEventListener('click', () => handleAnswer(loc, idx, choices, result));
-        choices.appendChild(btn);
-      });
+      renderExamStart(loc, section);
     }
 
-    // Show panel
     panel.classList.remove('hidden');
     requestAnimationFrame(() => panel.classList.add('visible'));
   }
 
-  function handleAnswer(loc, idx, choicesEl, resultEl) {
+  function renderSolved(loc, section) {
+    section.innerHTML = '';
+    const clue = Game.getClue(loc.id);
+    const result = document.createElement('div');
+    result.className = 'exam-result result-solved';
+    result.textContent = `🔎 ${clue}`;
+    section.appendChild(result);
+
+    // If they solved but never chose an interpretation, offer it now
+    if (loc.examination && loc.examination.farrow_options && !Game.getTag(loc.id)) {
+      renderInterpretation(loc, section);
+    }
+  }
+
+  function renderExamStart(loc, section) {
+    section.innerHTML = '';
+
+    // Fallback: no examination data → go straight to deduction
+    if (!loc.examination) {
+      renderDeduction(loc, section);
+      return;
+    }
+
+    const claim = document.createElement('div');
+    claim.className = 'exam-claim';
+    claim.textContent = loc.examination.claim;
+
+    const btn = document.createElement('button');
+    btn.className = 'exam-begin-btn';
+    btn.textContent = '🔍 Begin Cross-Examination';
+    btn.addEventListener('click', () => renderExamChallenge(loc, section));
+
+    section.append(claim, btn);
+  }
+
+  function renderExamChallenge(loc, section) {
+    section.innerHTML = '';
+
+    const claim = document.createElement('div');
+    claim.className = 'exam-claim';
+    claim.textContent = loc.examination.claim;
+
+    const label = document.createElement('div');
+    label.className = 'exam-challenge-label';
+    label.textContent = 'How do you respond?';
+
+    const opts = document.createElement('div');
+    opts.className = 'exam-options';
+
+    loc.examination.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'exam-opt';
+      btn.textContent = opt.label;
+      btn.addEventListener('click', () => renderExamResponse(loc, idx, section));
+      opts.appendChild(btn);
+    });
+
+    section.append(claim, label, opts);
+  }
+
+  function renderExamResponse(loc, optIdx, section) {
+    section.innerHTML = '';
+    const chosen = loc.examination.options[optIdx];
+
+    const claim = document.createElement('div');
+    claim.className = 'exam-claim';
+    claim.textContent = loc.examination.claim;
+
+    const chosenLabel = document.createElement('div');
+    chosenLabel.className = 'exam-opt-chosen';
+    chosenLabel.textContent = `"${chosen.label}"`;
+
+    const resp = document.createElement('div');
+    resp.className = 'exam-response';
+    resp.textContent = chosen.response;
+
+    const btn = document.createElement('button');
+    btn.className = 'exam-proceed-btn';
+    btn.textContent = 'Make your deduction →';
+    btn.addEventListener('click', () => renderDeduction(loc, section));
+
+    section.append(claim, chosenLabel, resp, btn);
+  }
+
+  function renderDeduction(loc, section) {
+    section.innerHTML = '';
+
+    const mystery = document.createElement('p');
+    mystery.className = 'exam-mystery';
+    mystery.textContent = loc.mystery;
+
+    const choices = document.createElement('div');
+    choices.className = 'exam-choices';
+
+    const result = document.createElement('div');
+    result.className = 'exam-result hidden';
+
+    loc.choices.forEach((text, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = text;
+      btn.addEventListener('click', () => handleAnswer(loc, idx, choices, result, section));
+      choices.appendChild(btn);
+    });
+
+    section.append(mystery, choices, result);
+  }
+
+  function handleAnswer(loc, idx, choicesEl, resultEl, section) {
     const buttons = choicesEl.querySelectorAll('.choice-btn');
     buttons.forEach(b => b.disabled = true);
 
@@ -71,15 +159,57 @@ const UI = (() => {
       if (typeof Story !== 'undefined') Story.onSolve(loc, MapView.getLocations());
 
       resultEl.textContent = `✅ Elementary! ${loc.solved_text}`;
-      resultEl.className   = 'result-correct';
+      resultEl.className   = 'exam-result result-correct';
     } else {
       buttons[idx].classList.add('wrong');
       buttons[loc.answer].classList.add('correct');
       resultEl.textContent = `🕵️ Not quite. The correct answer: "${loc.choices[loc.answer]}"`;
-      resultEl.className   = 'result-wrong';
+      resultEl.className   = 'exam-result result-wrong';
     }
 
     resultEl.classList.remove('hidden');
+
+    // Interpretation prompt only after a correct answer
+    if (idx === loc.answer && loc.examination && loc.examination.farrow_options) {
+      setTimeout(() => renderInterpretation(loc, section), 900);
+    }
+  }
+
+  function renderInterpretation(loc, section) {
+    // Don't add a second prompt if one already exists
+    if (section.querySelector('.exam-interpretation')) return;
+
+    const interp = document.createElement('div');
+    interp.className = 'exam-interpretation';
+
+    const label = document.createElement('div');
+    label.className = 'interp-label';
+    label.textContent = '🕵 What does this site reveal about Farrow\'s disappearance?';
+
+    const opts = document.createElement('div');
+    opts.className = 'interp-opts';
+
+    loc.examination.farrow_options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'interp-opt';
+      btn.textContent = opt.text;
+      btn.addEventListener('click', () => {
+        Game.tag(loc.id, opt.tag);
+        opts.querySelectorAll('.interp-opt').forEach(b => b.disabled = true);
+        btn.classList.add('interp-opt-chosen');
+
+        const confirm = document.createElement('div');
+        confirm.className = 'interp-confirm';
+        confirm.textContent = '— recorded in your dossier.';
+        opts.after(confirm);
+      }, { once: true });
+      opts.appendChild(btn);
+    });
+
+    interp.append(label, opts);
+    section.appendChild(interp);
+
+    setTimeout(() => interp.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 120);
   }
 
   function closeCaseFile() {
@@ -91,11 +221,11 @@ const UI = (() => {
   // ---- Dossier ----
 
   function openDossier() {
-    const panel    = document.getElementById('dossier-panel');
-    const summary  = document.getElementById('dossier-summary');
-    const entries  = document.getElementById('dossier-entries');
+    const panel     = document.getElementById('dossier-panel');
+    const summary   = document.getElementById('dossier-summary');
+    const entries   = document.getElementById('dossier-entries');
     const locations = MapView.getLocations();
-    const solved   = Game.solvedCount();
+    const solved    = Game.solvedCount();
 
     summary.textContent = `${solved} of ${locations.length} cases solved.`;
     entries.innerHTML   = '';
