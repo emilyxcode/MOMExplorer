@@ -200,5 +200,5 @@ const PlayerGame = (() => {
     document.getElementById('resetPan').addEventListener('click', resetPosition);
   }
 
-  return { init };
+  return { init, resetToStart: resetPosition };
 })();

@@ -88,6 +88,12 @@ const MapView = (() => {
 
   function getLocations() { return locations; }
 
+  function resetAllMarkers() {
+    Object.keys(markers).forEach(id => {
+      markers[id].marker.setIcon(makeIcon('locked'));
+    });
+  }
+
   function showUserPosition(lat, lng) {
     // Draw or move an accuracy circle for user position (subtle)
     if (!MapView._userCircle) {
@@ -103,6 +109,6 @@ const MapView = (() => {
     }
   }
 
-  return { init, updateMarker, getLocations, showUserPosition,
+  return { init, updateMarker, resetAllMarkers, getLocations, showUserPosition,
            get _leafletMap() { return leafletMap; } };
 })();

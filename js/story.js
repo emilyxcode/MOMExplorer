@@ -97,11 +97,13 @@ const Story = (() => {
 
     newBtn.addEventListener('click', () => {
       const name = getName();
-      localStorage.removeItem(STATE_KEY);
-      localStorage.removeItem(POS_KEY);
       localStorage.setItem(NAME_KEY, name);
       localStorage.setItem(INTRO_SEEN_KEY, '1');
-      location.reload();
+      Game.reset();
+      MapView.resetAllMarkers();
+      PlayerGame.resetToStart();
+      UI.updateDossierCount();
+      dismissModal(name);
     }, { once: true });
 
     loadBtn.addEventListener('click', () => {

@@ -63,7 +63,12 @@ const Game = (() => {
   function getClue(id)    { return state.clues[id] || null; }
   function solvedCount()  { return state.solved.size; }
 
+  function reset() {
+    state = { unlocked: new Set(), solved: new Set(), clues: {} };
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
   function getAll() { return state; }
 
-  return { load, unlock, solve, isUnlocked, isSolved, getClue, solvedCount, getAll };
+  return { load, reset, unlock, solve, isUnlocked, isSolved, getClue, solvedCount, getAll };
 })();
