@@ -10,11 +10,12 @@
  */
 
 const PlayerGame = (() => {
-  const STEP_DEG      = 0.00045;        // ~50m per keypress
-  const SPRINT_MULT   = 4;              // Shift multiplier
+  const STEP_DEG      = 0.00045;        // ~50m per keypress at 1×
+  const SPRINT_MULT   = 2;              // Shift adds 2× on top of slider
   const UNLOCK_DIST_M = 500;            // metres to unlock a site
   const START_POS     = [40.32, -74.17]; // Monmouth County centre
   const POS_KEY       = 'momexplorer_pos';
+  const SPEED_KEY     = 'momexplorer_speed';
 
   let playerPos    = [...START_POS];
   let playerMarker = null;
@@ -41,8 +42,13 @@ const PlayerGame = (() => {
     } catch (e) { /* fall back to START_POS */ }
   }
 
+  function getSliderSpeed() {
+    const slider = document.getElementById('speed-slider');
+    return slider ? parseInt(slider.value, 10) : 1;
+  }
+
   function step() {
-    return STEP_DEG * (shiftHeld ? SPRINT_MULT : 1);
+    return STEP_DEG * getSliderSpeed() * (shiftHeld ? SPRINT_MULT : 1);
   }
 
   function move(dlat, dlng) {
@@ -140,6 +146,21 @@ const PlayerGame = (() => {
 
     leafletMap.setView(playerPos, 11);
     checkProximity();
+
+    // Show saved name in HUD (title screen may still be fading)
+    const savedName = localStorage.getItem('momexplorer_name');
+    if (savedName && typeof Story !== 'undefined') Story.updateHudName(savedName);
+
+    // Speed slider — restore saved value and wire up live updates
+    const slider = document.getElementById('speed-slider');
+    const label  = document.getElementById('speed-label');
+    const savedSpeed = parseInt(localStorage.getItem(SPEED_KEY), 10);
+    if (savedSpeed >= 1 && savedSpeed <= 20) slider.value = savedSpeed;
+    label.textContent = `${slider.value}×`;
+    slider.addEventListener('input', () => {
+      label.textContent = `${slider.value}×`;
+      localStorage.setItem(SPEED_KEY, slider.value);
+    });
 
     // Shift sprint tracking
     document.addEventListener('keydown', e => {

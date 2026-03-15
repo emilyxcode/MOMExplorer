@@ -136,6 +136,30 @@ body {
   margin-left: 4px;
 }
 
+/* ---- Speed slider ---- */
+
+#speed-row {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--parchment-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#speed-slider {
+  flex: 1;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+#speed-label {
+  min-width: 26px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+}
+
 /* ---- Player marker ---- */
 
 .player-marker {

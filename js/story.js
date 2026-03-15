@@ -1,5 +1,5 @@
 /**
- * story.js — Intro screen, chapter reveals, and finale
+ * story.js — Title screen, chapter reveals, and finale
  *
  * Story: "The Vanished Chronicler"
  * Holmes sends the player to retrace the steps of Dr. Elias Farrow,
@@ -8,36 +8,23 @@
  */
 
 const Story = (() => {
-  const INTRO_SEEN_KEY = 'momexplorer_intro_seen';
+  const NAME_KEY  = 'momexplorer_name';
+  const POS_KEY   = 'momexplorer_pos';
+  const STATE_KEY = 'momexplorer_state';
 
-  const INTRO_LINES = [
-    'My dear detective —',
-    'I write to you from Baker Street with a matter of some urgency.',
-    'In the autumn of 1887, a scholar named Dr. Elias Farrow vanished without a trace — shortly after sending me a letter claiming to have uncovered something extraordinary hidden across Monmouth County, New Jersey.',
-    'His last letter spoke of eight places, each holding a fragment of a secret that connects the county\'s entire history.',
-    'I am too old for the journey myself. I need you to walk in his footsteps — and discover what he found.',
-    '— Sherlock Holmes'
-  ];
+  // Fetch story content from data file; resolves before checkIntro() is ever called
+  let storyData = null;
+  fetch('data/story.json')
+    .then(r => r.json())
+    .then(d => { storyData = d; })
+    .catch(() => { storyData = { intro: [], finale_conclusion: '' }; });
 
-  const FINALE_CONCLUSION = `
-    Holmes set down Farrow's completed journal and was quiet for a long moment.
-    "He was right, you know," he said at last. "I spent decades looking for the extraordinary hidden behind the ordinary. Farrow found the opposite — the extraordinary hiding in plain sight, wearing the face of the ordinary."
-    He closed the cover.
-    "Every one of these people — Martin, Tennent, Mary Hays, the lighthouse keeper, the ironworkers, the judge, the signal operators — they were not remarkable people doing remarkable things. They were ordinary people who showed up when their moment arrived. That is the secret Dr. Farrow discovered. That is why he chose to stay."
-    A long pause.
-    "I confess — I find I rather envy him."
-  `;
+  // ---- Typewriter ----
 
-  // ---- Typewriter intro ----
-
-  function typewriterLines(lines, el, onDone, speed = 28) {
+  function typewriterLines(lines, el, speed = 22) {
     let lineIdx  = 0;
     let charIdx  = 0;
     let fullText = '';
-
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor';
-    el.appendChild(cursor);
 
     function tick() {
       const line = lines[lineIdx];
@@ -51,34 +38,76 @@ const Story = (() => {
         charIdx = 0;
         lineIdx++;
         if (lineIdx < lines.length) {
-          setTimeout(tick, 320);
+          setTimeout(tick, 280);
         } else {
           el.innerHTML = fullText.replace(/\n/g, '<br>');
-          onDone();
         }
       }
     }
     tick();
   }
 
+  // ---- Title screen (shown on every load) ----
+
   function checkIntro() {
-    if (localStorage.getItem(INTRO_SEEN_KEY)) return;
+    const modal    = document.getElementById('intro-modal');
+    const textEl   = document.getElementById('intro-text');
+    const nameInput = document.getElementById('name-input');
+    const newBtn   = document.getElementById('intro-new');
+    const loadBtn  = document.getElementById('intro-load');
 
-    const modal   = document.getElementById('intro-modal');
-    const textEl  = document.getElementById('intro-text');
-    const startBtn = document.getElementById('intro-start');
+    // Pre-fill name if saved
+    const savedName = localStorage.getItem(NAME_KEY);
+    if (savedName) nameInput.value = savedName;
 
-    modal.style.display = 'flex';
+    // Show Load Game only if a save exists
+    const hasSave = !!localStorage.getItem(POS_KEY) ||
+      (() => { try { const s = JSON.parse(localStorage.getItem(STATE_KEY) || '{}'); return (s.solved || []).length > 0 || (s.unlocked || []).length > 0; } catch { return false; } })();
+    if (hasSave) loadBtn.classList.remove('hidden');
 
-    typewriterLines(INTRO_LINES, textEl, () => {
-      startBtn.classList.add('visible');
+    // Update title from data if available
+    const titleEl = document.getElementById('intro-title');
+    if (storyData?.title) titleEl.textContent = storyData.title;
+
+    // Show modal and start typewriter
+    modal.classList.remove('hidden');
+    typewriterLines(storyData?.intro || [], textEl);
+
+    function getName() {
+      const name = nameInput.value.trim();
+      if (name) localStorage.setItem(NAME_KEY, name);
+      return name || 'Detective';
+    }
+
+    function dismissModal(name) {
+      updateHudName(name);
+      modal.classList.add('fade-out');
+      setTimeout(() => modal.classList.add('hidden'), 650);
+    }
+
+    // Allow Enter key to trigger New Game
+    nameInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') newBtn.click();
     });
 
-    startBtn.addEventListener('click', () => {
-      localStorage.setItem(INTRO_SEEN_KEY, '1');
-      modal.classList.add('fade-out');
-      setTimeout(() => { modal.style.display = 'none'; }, 650);
+    newBtn.addEventListener('click', () => {
+      const name = getName();
+      // Clear saved progress and position, keep name
+      localStorage.removeItem(STATE_KEY);
+      localStorage.removeItem(POS_KEY);
+      // Reload so game state resets cleanly
+      localStorage.setItem(NAME_KEY, name);
+      location.reload();
     }, { once: true });
+
+    loadBtn.addEventListener('click', () => {
+      dismissModal(getName());
+    }, { once: true });
+  }
+
+  function updateHudName(name) {
+    const el = document.getElementById('hud-title');
+    if (el) el.textContent = `🔍 Detective ${name}`;
   }
 
   // ---- Chapter banner ----
@@ -103,14 +132,14 @@ const Story = (() => {
     }
 
     dismiss.addEventListener('click', hide, { once: true });
-    chapterTimeout = setTimeout(hide, 12000); // auto-dismiss after 12s
+    chapterTimeout = setTimeout(hide, 12000);
   }
 
   // ---- Finale ----
 
   function showFinale(locations) {
-    const modal       = document.getElementById('finale-modal');
-    const chaptersEl  = document.getElementById('finale-chapters');
+    const modal        = document.getElementById('finale-modal');
+    const chaptersEl   = document.getElementById('finale-chapters');
     const conclusionEl = document.getElementById('finale-conclusion');
 
     chaptersEl.innerHTML = '';
@@ -126,7 +155,8 @@ const Story = (() => {
       chaptersEl.appendChild(div);
     });
 
-    conclusionEl.innerHTML = FINALE_CONCLUSION.trim().replace(/\n\s+/g, '<br><br>');
+    const conclusion = (storyData?.finale_conclusion || '').trim();
+    conclusionEl.innerHTML = conclusion.replace(/\n/g, '<br>');
 
     modal.classList.remove('hidden');
 
@@ -140,7 +170,6 @@ const Story = (() => {
   function onSolve(loc, allLocations) {
     showChapter(loc);
     if (Game.solvedCount() === allLocations.length) {
-      // Brief delay so chapter banner shows first
       setTimeout(() => {
         document.getElementById('chapter-banner').classList.add('hidden');
         showFinale(allLocations);
@@ -148,5 +177,5 @@ const Story = (() => {
     }
   }
 
-  return { checkIntro, onSolve };
+  return { checkIntro, onSolve, updateHudName };
 })();

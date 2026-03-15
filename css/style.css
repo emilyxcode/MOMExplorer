@@ -510,27 +510,76 @@ html, body {
   50%       { opacity: 0; }
 }
 
-#intro-start {
+/* ---- Name input ---- */
+
+#intro-name-row {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#intro-name-row label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+#name-input {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid var(--gold-dark);
+  border-radius: 4px;
+  color: var(--parchment);
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#name-input:focus {
+  border-color: var(--gold);
+}
+
+#name-input::placeholder {
+  color: rgba(245, 230, 200, 0.35);
+}
+
+/* ---- Intro buttons ---- */
+
+#intro-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+#intro-new,
+#intro-load {
   background: var(--gold-dark);
   color: var(--parchment);
   border: 1.5px solid var(--gold);
   font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  padding: 12px 28px;
+  font-size: 0.88rem;
+  padding: 11px 24px;
   border-radius: 4px;
   cursor: pointer;
   letter-spacing: 0.06em;
   transition: background 0.2s;
-  display: none; /* shown by story.js after typewriter finishes */
+  flex: 1;
 }
 
-#intro-start.visible {
-  display: inline-block;
-}
-
-#intro-start:hover {
+#intro-new:hover,
+#intro-load:hover {
   background: var(--gold);
   color: var(--sepia-dark);
+}
+
+#intro-load {
+  background: transparent;
+  color: var(--gold);
 }
 
 /* ---- Chapter banner ---- */
