@@ -72,14 +72,25 @@
     <div id="intro-inner">
       <div id="intro-from">A letter from 221B Baker Street</div>
       <h1 id="intro-title">The Vanished Chronicler</h1>
-      <div id="intro-text"></div>
-      <div id="intro-name-row">
-        <label for="name-input">Your name, Detective:</label>
-        <input type="text" id="name-input" placeholder="Enter your name…" maxlength="30" autocomplete="off" />
+
+      <!-- Step 1: name -->
+      <div id="intro-step-name">
+        <div id="intro-name-row">
+          <label for="name-input">Your name, Detective:</label>
+          <input type="text" id="name-input" placeholder="Enter your name…" maxlength="30" autocomplete="off" />
+        </div>
+        <div id="intro-buttons-begin">
+          <button id="intro-begin">Begin</button>
+        </div>
       </div>
-      <div id="intro-buttons">
-        <button id="intro-new">New Game</button>
-        <button id="intro-load" class="hidden">Load Game</button>
+
+      <!-- Step 2: letter + action buttons (hidden until name submitted) -->
+      <div id="intro-step-letter" class="hidden">
+        <div id="intro-text"></div>
+        <div id="intro-buttons" class="hidden">
+          <button id="intro-new">New Game</button>
+          <button id="intro-load" class="hidden">Load Game</button>
+        </div>
       </div>
     </div>
   </div>

@@ -556,6 +556,7 @@ html, body {
   justify-content: center;
 }
 
+#intro-begin,
 #intro-new,
 #intro-load {
   background: var(--gold-dark);
@@ -571,6 +572,7 @@ html, body {
   flex: 1;
 }
 
+#intro-begin:hover,
 #intro-new:hover,
 #intro-load:hover {
   background: var(--gold);
@@ -580,6 +582,14 @@ html, body {
 #intro-load {
   background: transparent;
   color: var(--gold);
+}
+
+#intro-buttons-begin {
+  margin-top: 16px;
+}
+
+#intro-buttons-begin #intro-begin {
+  width: 100%;
 }
 
 /* ---- Chapter banner ---- */

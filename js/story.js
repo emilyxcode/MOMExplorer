@@ -13,16 +13,16 @@ const Story = (() => {
   const STATE_KEY      = 'momexplorer_state';
   const INTRO_SEEN_KEY = 'momexplorer_intro_seen';
 
-  // Fetch story content from data file; resolves before checkIntro() is ever called
+  // Fetch story content — store promise so checkIntro() can await it
   let storyData = null;
-  fetch('data/story.json')
+  const _storyReady = fetch('data/story.json')
     .then(r => r.json())
     .then(d => { storyData = d; })
     .catch(() => { storyData = { intro: [], finale_conclusion: '' }; });
 
   // ---- Typewriter ----
 
-  function typewriterLines(lines, el, speed = 22) {
+  function typewriterLines(lines, el, speed = 22, onDone = null) {
     let lineIdx  = 0;
     let charIdx  = 0;
     let fullText = '';
@@ -42,6 +42,7 @@ const Story = (() => {
           setTimeout(tick, 280);
         } else {
           el.innerHTML = fullText.replace(/\n/g, '<br>');
+          if (onDone) onDone();
         }
       }
     }
@@ -50,33 +51,33 @@ const Story = (() => {
 
   // ---- Title screen (shown on every load) ----
 
-  function checkIntro() {
-    const modal    = document.getElementById('intro-modal');
-    const textEl   = document.getElementById('intro-text');
-    const nameInput = document.getElementById('name-input');
-    const newBtn   = document.getElementById('intro-new');
-    const loadBtn  = document.getElementById('intro-load');
+  async function checkIntro() {
+    await _storyReady;
+
+    const modal      = document.getElementById('intro-modal');
+    const nameInput  = document.getElementById('name-input');
+    const beginBtn   = document.getElementById('intro-begin');
+    const stepName   = document.getElementById('intro-step-name');
+    const stepLetter = document.getElementById('intro-step-letter');
+    const textEl     = document.getElementById('intro-text');
+    const buttonsEl  = document.getElementById('intro-buttons');
+    const newBtn     = document.getElementById('intro-new');
+    const loadBtn    = document.getElementById('intro-load');
 
     // Pre-fill name if saved
     const savedName = localStorage.getItem(NAME_KEY);
     if (savedName) nameInput.value = savedName;
+
+    // Update title from data
+    const titleEl = document.getElementById('intro-title');
+    if (storyData?.title) titleEl.textContent = storyData.title;
 
     // Show Load Game only if a save exists
     const hasSave = !!localStorage.getItem(POS_KEY) ||
       (() => { try { const s = JSON.parse(localStorage.getItem(STATE_KEY) || '{}'); return (s.solved || []).length > 0 || (s.unlocked || []).length > 0; } catch { return false; } })();
     if (hasSave) loadBtn.classList.remove('hidden');
 
-    // Update title from data if available
-    const titleEl = document.getElementById('intro-title');
-    if (storyData?.title) titleEl.textContent = storyData.title;
-
-    // Show modal — play typewriter only on first ever visit
     modal.classList.remove('hidden');
-    if (!localStorage.getItem(INTRO_SEEN_KEY)) {
-      typewriterLines(storyData?.intro || [], textEl);
-    } else {
-      textEl.innerHTML = (storyData?.intro || []).join('<br><br>');
-    }
 
     function getName() {
       const name = nameInput.value.trim();
@@ -90,14 +91,32 @@ const Story = (() => {
       setTimeout(() => modal.classList.add('hidden'), 650);
     }
 
-    // Allow Enter key to trigger New Game
+    // Step 1: Enter → Begin
     nameInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') newBtn.click();
+      if (e.key === 'Enter') beginBtn.click();
     });
+
+    // Step 1 → Step 2: show the letter, then reveal action buttons
+    beginBtn.addEventListener('click', () => {
+      getName(); // save name immediately
+      stepName.classList.add('hidden');
+      stepLetter.classList.remove('hidden');
+
+      const intro = storyData?.intro || [];
+      if (!localStorage.getItem(INTRO_SEEN_KEY)) {
+        // First visit — typewriter, buttons appear when done
+        typewriterLines(intro, textEl, 22, () => {
+          buttonsEl.classList.remove('hidden');
+        });
+      } else {
+        // Returning — show text statically, buttons immediately
+        textEl.innerHTML = intro.join('<br><br>');
+        buttonsEl.classList.remove('hidden');
+      }
+    }, { once: true });
 
     newBtn.addEventListener('click', () => {
       const name = getName();
-      localStorage.setItem(NAME_KEY, name);
       localStorage.setItem(INTRO_SEEN_KEY, '1');
       Game.reset();
       MapView.resetAllMarkers();
