@@ -115,12 +115,65 @@ const UI = (() => {
     resp.className = 'exam-response';
     resp.textContent = chosen.response;
 
+    section.append(claim, chosenLabel, resp);
+
+    // If there's a follow-up, show it instead of jumping straight to deduction
+    if (loc.examination.follow_up) {
+      renderExamFollowUp(loc, section);
+    } else {
+      const btn = document.createElement('button');
+      btn.className = 'exam-proceed-btn';
+      btn.textContent = 'Make your deduction →';
+      btn.addEventListener('click', () => renderDeduction(loc, section));
+      section.appendChild(btn);
+    }
+  }
+
+  function renderExamFollowUp(loc, section) {
+    const fu = loc.examination.follow_up;
+
+    const prompt = document.createElement('div');
+    prompt.className = 'exam-followup-prompt';
+    prompt.textContent = fu.prompt;
+
+    const opts = document.createElement('div');
+    opts.className = 'exam-options';
+
+    fu.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'exam-opt';
+      btn.textContent = opt.label;
+      btn.addEventListener('click', () => renderExamFollowUpResponse(loc, idx, section));
+      opts.appendChild(btn);
+    });
+
+    section.append(prompt, opts);
+  }
+
+  function renderExamFollowUpResponse(loc, fuIdx, section) {
+    // Keep everything already shown; replace only the follow-up part
+    const prompt = section.querySelector('.exam-followup-prompt');
+    const opts    = prompt ? prompt.nextElementSibling : null;
+
+    if (prompt) prompt.remove();
+    if (opts && opts.classList.contains('exam-options')) opts.remove();
+
+    const chosen = loc.examination.follow_up.options[fuIdx];
+
+    const fuLabel = document.createElement('div');
+    fuLabel.className = 'exam-opt-chosen';
+    fuLabel.textContent = `"${chosen.label}"`;
+
+    const fuResp = document.createElement('div');
+    fuResp.className = 'exam-response';
+    fuResp.textContent = chosen.response;
+
     const btn = document.createElement('button');
     btn.className = 'exam-proceed-btn';
     btn.textContent = 'Make your deduction →';
     btn.addEventListener('click', () => renderDeduction(loc, section));
 
-    section.append(claim, chosenLabel, resp, btn);
+    section.append(fuLabel, fuResp, btn);
   }
 
   function renderDeduction(loc, section) {

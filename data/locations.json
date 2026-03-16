@@ -21,6 +21,19 @@
           "response": "Washington rode directly into the confusion. Not from behind — from the front, toward the enemy, facing the retreating men. They had to turn around to face him. Once they faced him, they faced the British too. That is all it took. One man. In full view. Refusing to move."
         }
       ],
+      "follow_up": {
+        "prompt": "Martin pauses, then lowers his voice.",
+        "options": [
+          {
+            "label": "What happened to the men who retreated?",
+            "response": "Some faced courts-martial. Others returned to the line and fought with distinction for years after. The retreat was not cowardice for most of them — it was confusion. Lee gave the orders. The men followed. Washington was furious at Lee. Not at the soldiers. He never blamed the soldiers."
+          },
+          {
+            "label": "How did the men feel about Washington?",
+            "response": "They called him the old man. Not with disrespect — with something closer to reverence. He was over six feet, on horseback, and he rode into musket fire without flinching. The men who watched him do that could not then run in the opposite direction. It was a kind of moral gravity. You could not look him in the eye and still retreat."
+          }
+        ]
+      },
       "farrow_options": [
         { "text": "He was afraid — he found a pattern that someone with authority was determined to keep buried.", "tag": "endangered" },
         { "text": "He found what he came for — proof that one person's refusal to retreat can reverse a disaster.", "tag": "chose_to_stay" },
@@ -35,121 +48,58 @@
     ],
     "answer": 1,
     "solved_text": "Elementary! Washington's furious rally — riding straight into the retreating line — stabilized the Continental Army. The battle ended in a tactical draw, but proved American troops could stand toe-to-toe with British regulars. Lee was later court-martialed.",
-    "chapter": "From Farrow's journal: 'The battlefield is quiet now — just grass and wind. But I found Martin's memoirs here. He wrote that ordinary soldiers held the line not for glory, but because the man beside them needed them to. The Revolution was carried on shoulders history never thought to record. This is Farrow's first fragment: courage belongs to the unnamed.'"
+    "chapter": "From Farrow's journal: 'The battlefield is quiet now — just grass and wind. But I found Martin's memoirs here. He wrote that ordinary soldiers held the line not for glory, but because the man beside them needed them to. The Revolution was carried on shoulders history never thought to record. The first fragment: courage belongs to the unnamed.'"
   },
   {
-    "id": "old-tennent-church",
-    "name": "Old Tennent Church",
-    "coords": [40.2713, -74.3176],
+    "id": "spy-house",
+    "name": "The Spy House — Seabrook-Wilson House",
+    "coords": [40.4152, -74.1678],
     "character": {
-      "name": "Reverend William Tennent III",
-      "role": "Presbyterian minister and Revolutionary War chaplain"
+      "name": "Gertrude Neidlinger",
+      "role": "Caretaker and self-appointed historian, Spy House Museum, 1960s"
     },
-    "witness": "\"The church and its yard were filled with the groans of the dying. Every pew became a stretcher.\" — Reverend William Tennent III, July 1778",
-    "farrow_notes": "Built in 1751, this church sits on a ridge that looks across the entire battlefield. During the engagement, Tennent opened the doors to the wounded — Continental and British alike. He drew no distinction. I found his private correspondence tucked behind the vestry pulpit.\n\nHe wrote to his wife: 'I did not ask them which side. I only asked them where it hurt.' The ridge, as I confirmed by standing at its crest this morning, provides an unobstructed view across miles of rolling ground — invaluable to any commander trying to read a battle spread across a dozen fields at once.",
+    "witness": "\"From this bluff, Patriots watched every British sail that moved through Raritan Bay. This house was the center of a twelve-man intelligence ring that altered the course of the Revolution.\" — Museum placard, installed 1963",
+    "farrow_notes": "The house itself is genuine — built by Thomas Whitlock in 1663, making it among the oldest domestic structures in New Jersey. The view from the upper window across Raritan Bay is striking: the shipping channel is visible for miles in both directions. I understand immediately why someone thought this would make an excellent spy post.\n\nThe problem is the documentation. I spent two days at the Monmouth County Historical Society looking for the intelligence network that supposedly operated from this bluff during the Revolution. I found nothing. No contemporary account. No Continental Army record. No British report noting a signals problem from Port Monmouth. No name in the militia rolls connected to the specific espionage story told on the museum placard.\n\nWhat I found instead was a reference to a part-time caretaker hired in the early 1960s to maintain the property and generate visitor interest. The 'spy house' legend appears to trace to her. The house is genuine. The legend is not.",
     "examination": {
-      "claim": "\"I treated both sides equally. Every man who came through those doors was God's creature, not a general's property. The Loyalists threatened me twice. I ignored them.\"",
+      "claim": "\"I spent six years researching this house before we opened the museum. Every story I tell is based on historical fact. The intelligence network was real. Twelve men. Three years. Seven intercepted fleet movements. I have the evidence.\"",
       "options": [
         {
-          "label": "Wasn't that dangerous?",
-          "response": "More than once. A patrol arrived demanding I stop treating their enemies. I told them: a man bleeding on my floor is not an enemy. He is simply bleeding. They could do nothing with that answer. Useful work has a way of being permitted even by those who disapprove of it."
+          "label": "Can I see the primary sources?",
+          "response": "There is a long pause. 'The original documents were lost. There was a fire. But I have assembled the secondary accounts — local histories, family records passed down orally. You must understand that not all history survives in archives. Some of it survives in memory.'"
         },
         {
-          "label": "How did you decide who to treat first?",
-          "response": "Whoever was closest to dying. That was my only rule. I kept no records of which side they came from. The churchyard outside is the only record — they lie together there now, in no particular order."
+          "label": "Which Continental Army records mention this network?",
+          "response": "Another pause. Longer. 'The Continental records are incomplete. Washington's intelligence operations were deliberately obscure — that was the point. The absence of documentation is itself evidence that the network was sophisticated enough to leave no trail.' She says this with great confidence. It is not a convincing argument."
         }
       ],
+      "follow_up": {
+        "prompt": "You press further. The caretaker's answers grow less certain.",
+        "options": [
+          {
+            "label": "Where did the legend actually originate?",
+            "response": "'I... conducted interviews. Local families. Oral tradition.' A very long pause. 'The house needed visitors. The county needed the funding. And the view from that window — you can see why people would have used it. The story fit the place so perfectly.' She has just described, without quite realizing it, exactly how myths are made."
+          },
+          {
+            "label": "What is the house's real historical significance?",
+            "response": "'It is one of the oldest houses in New Jersey. Built 1663. Three hundred years of continuous habitation. Colonial architecture almost entirely intact.' She sounds genuinely proud of this — and she should be. The real history is remarkable. It did not need a legend. But that is the strange thing about truth: sometimes it feels less satisfying than a story.'"
+          }
+        ]
+      },
       "farrow_options": [
-        { "text": "He found evidence that Tennent's neutrality made him a target — and recognized the same risk in himself.", "tag": "endangered" },
-        { "text": "He found the same principle here that appears at every site: do the obvious thing, ask no permission, keep no score.", "tag": "chose_to_stay" },
-        { "text": "He found something in Tennent's private letters — something that had been hidden there deliberately.", "tag": "found_and_fled" }
+        { "text": "Farrow found here a warning — false histories can bury real ones, and he feared his own work might do the same.", "tag": "endangered" },
+        { "text": "Farrow found the real house beneath the legend — and this is what he stayed to understand: how truth outlasts the stories told over it.", "tag": "chose_to_stay" },
+        { "text": "Farrow found evidence that the fabricated legend was covering something genuinely hidden about this location.", "tag": "found_and_fled" }
       ]
     },
-    "mystery": "Why was this church's hilltop location strategically significant during the battle?",
+    "mystery": "What does the historical record actually reveal about the Spy House's famous Revolutionary War intelligence network?",
     "choices": [
-      "It was used as a fortified gun emplacement by Washington's artillery",
-      "Its elevated position allowed officers to observe the entire battlefield and coordinate troop movements",
-      "British officers held a council of war there during the night before the battle"
+      "A documented ring of twelve operatives who signaled British fleet movements to Washington",
+      "A 20th-century legend invented by a caretaker in the 1960s — with no supporting contemporary evidence",
+      "A real network whose documentation was deliberately destroyed by the Continental Army after the war"
     ],
     "answer": 1,
-    "solved_text": "Elementary! The ridge provided an unobstructed view across the rolling Monmouth terrain — invaluable for commanders trying to read a chaotic, spread-out engagement. Today, gravestones in its churchyard bear witness to those who never left.",
-    "chapter": "From Farrow's journal: 'Tennent tended enemy and ally alike in these pews. He told no one. I found his private notes tucked beneath a floorboard. The second fragment: mercy does not choose sides. When the world breaks, those who heal it ask no questions about which uniform the wounded wore.'"
-  },
-  {
-    "id": "molly-pitcher-well",
-    "name": "Molly Pitcher's Well",
-    "coords": [40.2665, -74.2744],
-    "character": {
-      "name": "Mary Ludwig Hays",
-      "role": "Camp follower, wife of artilleryman William Hays"
-    },
-    "witness": "\"She was a camp follower — a soldier's wife carrying water under fire. Whether she fired the cannon herself, history has debated for two centuries.\" — Historian John Landis, 1905",
-    "farrow_notes": "I have spent three days in Freehold searching for her. Mary Ludwig Hays. The records are sparse — she was not the kind of person official records were made for.\n\nWhat I have assembled: her husband William worked an artillery piece during the battle. She carried water from this well to the overheating soldiers and cannon throughout the engagement. Several accounts suggest that when William collapsed from heat stroke, she stepped to his place at the gun. Whether she fired it, I cannot confirm with certainty. Whether the distinction matters, I find myself less certain than I expected.",
-    "examination": {
-      "claim": "\"I carried water. That is all I will say I did. What the soldiers made of it afterward — that is their story, not mine. I did not ask to be a legend.\"",
-      "options": [
-        {
-          "label": "Are you saying the legend isn't true?",
-          "response": "I am saying I did what was needed. Whether I fired the cannon — I cannot say now what is certainly true. I only know what I did in that moment. The legend is what other people needed to believe about that day. I did not give it to them. They made it themselves."
-        },
-        {
-          "label": "What exactly happened at the cannon?",
-          "response": "My husband fell. The gun was unmanned. There was no one else near enough, and the battle was still going. So I did what had to be done. I did not think it was heroic. I thought it was obvious. Heroic is what people call it when they want to make you into something more useful than a soldier's wife."
-        }
-      ],
-      "farrow_options": [
-        { "text": "He found here the same erasure that follows all his subjects — and recognized it in his own situation.", "tag": "found_and_fled" },
-        { "text": "He found that ordinary people do the obvious thing without requiring it to be heroic — and that this was exactly what he himself needed to do.", "tag": "chose_to_stay" },
-        { "text": "He was warned, at this location, not to continue questioning the official record.", "tag": "endangered" }
-      ]
-    },
-    "mystery": "What does the 'Molly Pitcher' legend actually reveal about women in the Revolutionary War?",
-    "choices": [
-      "Women were officially enlisted in the Continental Army under secret orders",
-      "Camp followers — wives, cooks, nurses — were essential to army operations and sometimes faced direct combat",
-      "Molly Pitcher was actually a British spy who infiltrated Washington's camp"
-    ],
-    "answer": 1,
-    "solved_text": "Elementary! Camp followers were the invisible backbone of 18th-century armies — cooking, nursing, hauling water, and sometimes fighting. Mary Hays was real; the legend grew around her because her story resonated with a nation wanting its own heroines.",
-    "chapter": "From Farrow's journal: 'I sat by this well a long while. Mary Hays did not ask to be a legend — she simply did what was needed. The third fragment confirms what the others hint at: history is not made by those who seek it. It is made in the act of showing up, quietly, under fire, and doing the thing that must be done.'"
-  },
-  {
-    "id": "twin-lights-navesink",
-    "name": "Twin Lights of Navesink",
-    "coords": [40.3970, -74.0043],
-    "character": {
-      "name": "Guglielmo Marconi",
-      "role": "Inventor, demonstrating wireless telegraphy in America, 1899"
-    },
-    "witness": "\"No sailor who rounded Sandy Hook could miss them — two burning eyes on the bluff, keeping the watch we could not.\" — Captain's log, 1862",
-    "farrow_notes": "The lighthouse keeper's log from 1899 notes, with considerable understatement: 'Mr. Marconi arrived today with his equipment. He says he intends to send words through the air.'\n\nThe keeper thought him eccentric. Within forty-eight hours, wireless signals were being transmitted from this bluff to vessels at sea — reporting the America's Cup yacht race, live, to a New York newspaper. The keeper's later entry reads simply: 'He was not, apparently, eccentric.' The lighthouse itself was already old by then — built in 1862 to replace an 1828 structure. It had seen many things, but perhaps not this.",
-    "examination": {
-      "claim": "\"The wire was simply a constraint. Remove the wire, and information becomes as free as light. Every age believes this idea is new. It is never new.\"",
-      "options": [
-        {
-          "label": "Wasn't the lighthouse already doing this?",
-          "response": "Precisely. The lighthouse had been transmitting information through darkness for centuries — to strangers it would never meet. I removed the limitation of distance. But the principle — light sent outward to guide an unknown recipient — I did not invent that. I found it already standing on this bluff."
-        },
-        {
-          "label": "What did you actually send that first day?",
-          "response": "Race results. Yes. The first wireless transmission in America was sports journalism. The future often arrives in the most ordinary wrapping. Everyone expects the revolutionary moment to be solemn. It almost never is."
-        }
-      ],
-      "farrow_options": [
-        { "text": "He found here that every generation rediscovers the same truth — and that his own discovery was no different.", "tag": "chose_to_stay" },
-        { "text": "He found a more recent signal from this location — something transmitted long after 1899, to no recorded recipient.", "tag": "endangered" },
-        { "text": "He found that the lighthouse's connection to Marconi masked a use of this site that continued into his own time.", "tag": "found_and_fled" }
-      ]
-    },
-    "mystery": "What historic first happened at Twin Lights in 1899?",
-    "choices": [
-      "The first electric lighthouse beam in the United States was activated here",
-      "Marconi demonstrated wireless telegraphy in America for the first time",
-      "The first transatlantic telegraph cable was brought ashore here"
-    ],
-    "answer": 1,
-    "solved_text": "Elementary! Marconi set up his wireless equipment at Twin Lights to report the America's Cup races to the New York Herald. The technology that would become radio was demonstrated to America right here on this Monmouth County bluff.",
-    "chapter": "From Farrow's journal: 'Marconi sent words through the air from this bluff — invisible, unstoppable. He did not invent the idea of connection. He simply removed the wire. The fourth fragment: every age believes its new invention is unprecedented. But the lighthouse was already doing this — sending light through darkness to guide strangers safely home. Some ideas are so old they feel new again.'"
+    "solved_text": "Elementary! Historians have found no contemporary evidence for the espionage legend. The story was constructed in the 1960s by a caretaker seeking to generate museum interest. The house itself is genuine — built 1663, one of the oldest in New Jersey — but the spy network is almost certainly fiction.",
+    "chapter": "From Farrow's journal: 'The house is real. The view is real. The three hundred years of habitation are real. The spy legend is not. What I found here was a lesson I did not expect: the desire to make history meaningful can produce a history that is not true. Farrow's second fragment, and perhaps the most unsettling: a story that fits a place perfectly is not, for that reason, true. The most dangerous myths are the ones that should have been real.'"
   },
   {
     "id": "allaire-village",
@@ -173,6 +123,19 @@
           "response": "A different location. Different geology. But you cannot move a bog iron deposit. We were entirely dependent on what the land gave us, and the land gave us what it could. When it wasn't enough, we ended. Not through failure. Simply through becoming inconvenient to the future."
         }
       ],
+      "follow_up": {
+        "prompt": "Allaire picks up a piece of cold slag from the forge and turns it over in his hands.",
+        "options": [
+          {
+            "label": "What did you do after the village closed?",
+            "response": "I went back to New York. Made other things. But I kept the land. I should have sold it — the buildings are worthless without the forge running. But I kept returning. My sons thought I was being sentimental. I was. The church bell still rings at noon. I do not know who rings it. The village is empty."
+          },
+          {
+            "label": "What do you think the workers felt?",
+            "response": "Anger. Justified anger. They had built actual lives here — houses, children, community. And it ended because of anthracite coal in Pennsylvania. That is not a satisfying reason for your world to disappear. I paid out what I could. It was not enough. It never is, for that kind of ending."
+          }
+        ]
+      },
       "farrow_options": [
         { "text": "He found in Allaire's collapse the same pattern of erasure — extraordinary communities made invisible by circumstance.", "tag": "chose_to_stay" },
         { "text": "He found that Allaire's collapse was not purely economic — someone had a reason to accelerate it.", "tag": "endangered" },
@@ -187,7 +150,160 @@
     ],
     "answer": 1,
     "solved_text": "Elementary! The bog iron Allaire used was local but low-grade. When Pennsylvania opened its anthracite coal-fueled blast furnaces producing far superior iron at lower cost, New Jersey's charcoal-fired operations simply couldn't compete. The village fell silent almost overnight.",
-    "chapter": "From Farrow's journal: 'Five hundred people built their entire world here — homes, a church, a school, a forge. Then progress moved on and left them behind. The fifth fragment is the hardest: progress has no loyalty. A community can be extraordinary and still be erased, not by failure, but simply by becoming inconvenient to the future.'"
+    "chapter": "From Farrow's journal: 'Five hundred people built their entire world here — homes, a church, a school, a forge. Then progress moved on and left them behind. The third fragment: progress has no loyalty. A community can be extraordinary and still be erased, not by failure, but simply by becoming inconvenient to the future.'"
+  },
+  {
+    "id": "fort-monmouth",
+    "name": "Camp Alfred Vail — Fort Monmouth",
+    "coords": [40.3140, -74.0450],
+    "character": {
+      "name": "Corporal Grace Albright",
+      "role": "Signal Corps telephone and radio operator, Camp Alfred Vail, 1918"
+    },
+    "witness": "\"The Signal Corps has one instruction: ensure the message gets through. Not the message about the battle — the message that prevents the wrong battle from happening in the first place.\" — Signal Corps training manual, 1919",
+    "farrow_notes": "The camp sits on flat ground between two rivers, and I initially found this puzzling — no natural advantage here, no high ground. Then I understood that a signals operation requires no natural advantage. Only space, quiet, and wire.\n\nThe camp was named for Alfred Vail, who worked beside Samuel Morse and received the first telegraph message in 1844: 'What hath God wrought.' An appropriate namesake for a place that would go on to develop portable field radios, teach communications to two generations of soldiers, and eventually contribute to early radar technology.\n\nI spent an afternoon in the signals training hall, watching operators transcribe Morse at forty words per minute, then learning to operate the new wireless sets. The patience required is extraordinary. The message never arrives whole. It arrives one character at a time. Everything here is about closing the distance between one person and another — across miles, through static, under fire.",
+    "examination": {
+      "claim": "\"You hear everything in signals work. Every battle before it happens — the orders going out. Every disaster after — the reports coming in. You become the moment before the rest of the world catches up. That is a strange position to occupy.\"",
+      "options": [
+        {
+          "label": "How did communications technology change warfare?",
+          "response": "In 1861, both sides used the same telegraph lines, which meant neither side could trust messages sent by wire. By 1918, we had wireless. By the next war, we had portable sets a soldier could carry on his back and communicate across miles. The history of modern warfare is partly a history of who had faster, more reliable communication. This camp is where that development happened."
+        },
+        {
+          "label": "What was the most significant development here?",
+          "response": "The portable field radio. Before this work, communication in the field required fixed lines or vehicle-mounted equipment. The first pack-mounted field radios were tested and refined here. A soldier could carry the set and communicate across miles while moving. That changes what an army can do. It changes everything about infantry tactics."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Albright sets down the headset and looks at you steadily.",
+        "options": [
+          {
+            "label": "What was it like to be in signals?",
+            "response": "You are always in the middle. Never entirely at the front, never entirely behind it. Your job is to be the connection between people who need to know and people who know. You hear things sometimes before they have officially happened. The message arrives at the switchboard before the world knows what it means. It is an unusual kind of knowledge to carry."
+          },
+          {
+            "label": "What happened to this camp after the war?",
+            "response": "Renamed Fort Monmouth in 1925. Expanded. Grew into a permanent installation that lasted nearly a century. Radar development in the 1930s. Newer portable radios in the 1940s. Satellite communication research in the 1950s. Then decommissioned in 2011. They always decommission the places that worked. They move the work somewhere else and call it modernization."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "He found here a pattern identical to what he found at the lighthouse — technology as the act of reaching across distance — and felt he was close to something.", "tag": "chose_to_stay" },
+        { "text": "He found classified Signal Corps records that were never supposed to leave the facility.", "tag": "found_and_fled" },
+        { "text": "He was recognized at Fort Monmouth — someone there knew who he was and what he was investigating.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What communications technology, developed at Camp Alfred Vail (Fort Monmouth), fundamentally changed infantry warfare in the 20th century?",
+    "choices": [
+      "The first military telephone exchange, allowing field officers to communicate without dispatch riders",
+      "The portable pack-mounted field radio, enabling infantry to communicate wirelessly while moving",
+      "The first encrypted telegraph cipher used by the US military in active combat"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Fort Monmouth's Signal Corps engineers developed and refined the portable field radio — a set a soldier carried on his back, enabling wireless communication across a battlefield. This technology transformed infantry tactics and remains the ancestor of every military radio in service today.",
+    "chapter": "From Farrow's journal: 'The message never arrives whole. It arrives one character at a time — one dit, one dah, one step across the distance. The Signal Corps built this place specifically to make that process faster, more reliable, more portable. Every advance they made was the same advance: reducing the distance between one person and another. The fourth fragment: the thread running through this county is not metaphor. It is a line. Every person in Monmouth's history added one more inch.'"
+  },
+  {
+    "id": "ocean-grove",
+    "name": "Ocean Grove Camp Meeting",
+    "coords": [40.2119, -74.0062],
+    "character": {
+      "name": "Reverend William B. Osborn",
+      "role": "Methodist minister and co-founder of Ocean Grove, 1869"
+    },
+    "witness": "\"It is not a resort. It is not a village. It is an experiment — in whether a community can govern itself by shared agreement rather than by law alone.\" — Ocean Grove Tribune, 1879",
+    "farrow_notes": "The houses here are extraordinary. Every one was built between 1869 and 1900, and every one has been maintained in essentially its original condition. The gingerbread trim, the deep porches, the painted colours fashionable in the decade each was built — standing in the street, I find it genuinely difficult to believe I am not looking at 1885.\n\nThe explanation is structural, not aesthetic. The Ocean Grove Camp Meeting Association owns all the land. Every square foot. For over a century, no resident could alter, sell, or demolish without the Association's consent. The mechanism that preserved these houses was not love of architecture. It was ownership.\n\nThe gates at the town entrance were locked on Sundays until a court challenge in the 1970s. The town was entirely dry until well into the next century. These restrictions were not arbitrary. They were the operating terms of a community that had decided, in 1869, exactly what it was and what it would permit. The remarkable thing is not that the rules eventually fell. The remarkable thing is how long they held.",
+    "examination": {
+      "claim": "\"We came here to build a community governed by shared values, not simply by law. The law permits many things that values forbid. We chose to live under both — and when they came into conflict, we asked the courts to tell us which must yield.\"",
+      "options": [
+        {
+          "label": "How did you maintain the Victorian architecture for 150 years?",
+          "response": "We owned the land. The Association owned every square foot of it. If you wanted to alter your house, you asked permission. If you wanted to sell, the Association had right of first refusal. If you wanted to demolish, the answer was no. It was not complicated. It was simply a different understanding of what property means when you live inside a community rather than merely adjacent to one."
+        },
+        {
+          "label": "Was the community ever legally challenged?",
+          "response": "Constantly. The Sunday gate closures were challenged in 1975. The dry town status was challenged for decades. The property structure was challenged by residents who wished to sell freely. Each challenge forced us to articulate exactly what we were and why it was worth maintaining. That process of defending what you built — that is also a form of preservation."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Osborn straightens his coat and looks at the street beyond the window.",
+        "options": [
+          {
+            "label": "Did residents resent the restrictions?",
+            "response": "Some. Those who came seeking quiet religious community lived the restrictions gratefully. Those who arrived and discovered constraints they had not anticipated — they sometimes resented them, yes. But I would point this out: no one came here by accident. The rules were not hidden. People chose to live under them. That choice is itself part of what this place is."
+          },
+          {
+            "label": "What happens to a place like this in the modern era?",
+            "response": "It adapts. The gates no longer close on Sundays. Alcohol can now be purchased within the borders. The Association no longer controls all land transactions. And yet — the houses are still there. The character is still there. The thing that was worth preserving turned out to be more durable than the mechanisms built to preserve it. I am not certain what to conclude from that."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here a model for how to protect something indefinitely — and wondered if his own disappearance was a form of preservation.", "tag": "chose_to_stay" },
+        { "text": "Farrow found that the Association's land records concealed something about the town's early years that the founders had wanted forgotten.", "tag": "found_and_fled" },
+        { "text": "Farrow found that someone in Ocean Grove recognized his inquiry and sent word to someone else.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What allowed Ocean Grove to preserve over 1,500 original Victorian structures — largely unchanged — for more than 150 years?",
+    "choices": [
+      "A federal historic preservation grant funded continuous restoration of the buildings",
+      "The Camp Meeting Association retained ownership of all land for over a century, controlling every sale and modification",
+      "Ocean Grove's remote location made commercial redevelopment economically unattractive"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! The Ocean Grove Camp Meeting Association owned every inch of land in the town, retaining approval rights over every sale, modification, and demolition for over a century. This unique corporate structure preserved what market forces would almost certainly have altered or destroyed.",
+    "chapter": "From Farrow's journal: 'They built this town to last — not with iron or stone but with shared agreement about what it was for. The Association owned the land. The residents owned the houses. The combination of those two forms of ownership created something neither could create alone. The fifth fragment: what survives is not always what was strongest. Sometimes it is simply what everyone agreed to keep. That is a more fragile kind of strength than it appears.'"
+  },
+  {
+    "id": "twin-lights-navesink",
+    "name": "Twin Lights of Navesink",
+    "coords": [40.3970, -74.0043],
+    "character": {
+      "name": "Guglielmo Marconi",
+      "role": "Inventor, demonstrating wireless telegraphy in America, 1899"
+    },
+    "witness": "\"No sailor who rounded Sandy Hook could miss them — two burning eyes on the bluff, keeping the watch we could not.\" — Captain's log, 1862",
+    "farrow_notes": "The lighthouse keeper's log from 1899 notes, with considerable understatement: 'Mr. Marconi arrived today with his equipment. He says he intends to send words through the air.'\n\nThe keeper thought him eccentric. Within forty-eight hours, wireless signals were being transmitted from this bluff to vessels at sea — reporting the America's Cup yacht race, live, to a New York newspaper. The keeper's later entry reads simply: 'He was not, apparently, eccentric.' The lighthouse itself was already old by then — built in 1862 to replace an 1828 structure. It had seen many things, but perhaps not this.",
+    "examination": {
+      "claim": "\"The wire was simply a constraint. Remove the wire, and information becomes as free as light. Every age believes this idea is new. It is never new.\"",
+      "options": [
+        {
+          "label": "Wasn't the lighthouse already doing this?",
+          "response": "Precisely. The lighthouse had been transmitting information through darkness for centuries — to strangers it would never meet. I removed the limitation of distance. But the principle — light sent outward to guide an unknown recipient — I did not invent that. I found it already standing on this bluff."
+        },
+        {
+          "label": "What did you actually send that first day?",
+          "response": "Race results. Yes. The first wireless transmission in America was sports journalism. The future often arrives in the most ordinary wrapping. Everyone expects the revolutionary moment to be solemn. It almost never is."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Marconi turns toward the window, looking out over the water for a long moment.",
+        "options": [
+          {
+            "label": "What were you thinking about that night?",
+            "response": "About the lighthouse keeper. He had been here forty years before I arrived. He sent light through darkness every night — to strangers he would never meet, who would never know his name. I sent words through the air. We were doing the same thing. The medium changes. The act of sending does not."
+          },
+          {
+            "label": "What happened to the wireless station?",
+            "response": "A better location was found. Marconi moved on. The equipment was removed. The lighthouse remained. He said later that the lighthouse was the only thing here that understood what he was trying to do. He was being poetic. I think he was also being serious."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "He found here that every generation rediscovers the same truth — and that his own discovery was no different.", "tag": "chose_to_stay" },
+        { "text": "He found a more recent signal from this location — something transmitted long after 1899, to no recorded recipient.", "tag": "endangered" },
+        { "text": "He found that the lighthouse's connection to Marconi masked a use of this site that continued into his own time.", "tag": "found_and_fled" }
+      ]
+    },
+    "mystery": "What historic first happened at Twin Lights in 1899?",
+    "choices": [
+      "The first electric lighthouse beam in the United States was activated here",
+      "Marconi demonstrated wireless telegraphy in America for the first time",
+      "The first transatlantic telegraph cable was brought ashore here"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Marconi set up his wireless equipment at Twin Lights to report the America's Cup races to the New York Herald. The technology that would become radio was demonstrated to America right here on this Monmouth County bluff.",
+    "chapter": "From Farrow's journal: 'Marconi sent words through the air from this bluff — invisible, unstoppable. He did not invent the idea of connection. He simply removed the wire. The sixth fragment: every age believes its new invention is unprecedented. But the lighthouse was already doing this — sending light through darkness to guide strangers safely home. Some ideas are so old they feel new again.'"
   },
   {
     "id": "sandy-hook-lighthouse",
@@ -211,6 +327,19 @@
           "response": "I told them the same thing. A light serves whoever is at sea. The British needed the harbor as badly as anyone — their entire New York garrison depended on supply ships making that bar safely. The light wasn't political. It was simply necessary. And necessary things have a way of being permitted."
         }
       ],
+      "follow_up": {
+        "prompt": "Tinton sets down the logbook. He has one more thing to say.",
+        "options": [
+          {
+            "label": "How long did you keep the light?",
+            "response": "Forty-two years. Through four governments, if you count the Proprietary Colony, the Crown, the new republic, and the changes after. The light did not care about any of it. The bar was still there. The ships were still there. That is what I told every authority that came to this door: the bar does not recognize your flag. Only I do."
+          },
+          {
+            "label": "What happened to you after the Revolution?",
+            "response": "I was a Loyalist. That required some explaining after the war. Several neighbors had been less forgiving. But the lighthouse was useful. Useful to the new government as much as the old one. No one could quite bring themselves to remove the man who kept the light burning through the entire conflict. I kept my house. My reputation required some years of repair."
+          }
+        ]
+      },
       "farrow_options": [
         { "text": "He found in Tinton's reasoning the heart of the pattern — 'useful things survive ideology' — the exact phrase in his final note.", "tag": "chose_to_stay" },
         { "text": "He found evidence of a more recent use of the lighthouse's underground storage rooms.", "tag": "endangered" },
@@ -225,82 +354,57 @@
     ],
     "answer": 1,
     "solved_text": "Elementary! New York Harbor was the most important port in colonial America. The lighthouse guided vessels safely through the sandbar — so controlling it meant controlling resupply of the British garrison in New York. Patriots tried to destroy it; Loyalists defended it successfully.",
-    "chapter": "From Farrow's journal: 'The lighthouse kept its light through every war, every change of government, every human argument about who owned what. The sixth fragment arrives quietly: some things are too useful to be ideological. The lighthouse did not care who won. It simply kept the ships from the rocks. Perhaps that is its own form of wisdom.'"
+    "chapter": "From Farrow's journal: 'The lighthouse kept its light through every war, every change of government, every human argument about who owned what. The seventh fragment: some things are too useful to be ideological. The lighthouse did not care who won. It simply kept the ships from the rocks. Perhaps that is its own form of wisdom.'"
   },
   {
-    "id": "monmouth-courthouse",
-    "name": "Monmouth County Courthouse",
-    "coords": [40.2654, -74.2726],
+    "id": "roosevelt-nj",
+    "name": "Roosevelt, NJ — Jersey Homesteads",
+    "coords": [40.2201, -74.4732],
     "character": {
-      "name": "Judge David Forman",
-      "role": "Continental Army officer and Monmouth County judge"
+      "name": "Ben Shahn",
+      "role": "Artist and social activist, Roosevelt NJ, 1937–1969"
     },
-    "witness": "\"The courthouse square has seen hangings, celebrations, riots, and dedications — it is the county's conscience made stone.\" — Freehold historian, 1976",
-    "farrow_notes": "The county seat since 1714 — this courthouse has presided over more of Monmouth's history than any other single building. I spent yesterday in the archive below it. What struck me most was not the famous cases but the ordinary ones: neighbor against neighbor, farm against farm, the small bitter disputes of a community at war with itself.\n\nMonmouth County was deeply divided — perhaps fifty percent Loyalist. When the war ended, the reckoning came here. Properties were confiscated. Families were exiled to Nova Scotia. Judge Forman presided. I found his personal ledger. He prosecuted men he had known for thirty years. Some wept at the bar. He recorded their tears, and his own doubts, in careful handwriting.",
+    "witness": "\"We came from the tenements of the Lower East Side with our union cards and our sewing machines. They gave us forty acres of New Jersey farmland. We looked at each other and said: well, someone will have to learn to farm first.\" — original resident Abraham Shulman, 1940",
+    "farrow_notes": "The town is smaller than I expected and quieter than the ambition that built it deserves. Jersey Homesteads — renamed Roosevelt in 1945 in grief at FDR's death — was a New Deal project unlike any other. The federal government bought the farmland. The residents were Jewish garment workers from the Lower East Side of New York, most of them labor organizers, brought here to try an experiment: a self-governing cooperative community where they collectively owned the factory, the farm, and the land.\n\nThe factory failed within five years. It could not compete with standard industrial production. The farm cooperative outlasted it. The community outlasted both.\n\nI spent an hour in the community building looking at Ben Shahn's mural — a vast fresco tracing the history of the labor movement, the pogroms, the immigration that brought these specific people to this specific place. Shahn painted it as history. The people who commissioned it had lived it. The woman standing beside me who finally said, after twenty minutes of silence: 'My grandmother is in that painting.' I asked which figure. She said: 'All of them.'",
     "examination": {
-      "claim": "\"I prosecuted men I had known for thirty years. I do not claim it was just. I claim only that it was necessary. A community without order is no community at all.\"",
+      "claim": "\"I painted what they told me. The pogroms. The ships. The factories. The strikes. Their history was not abstract — it was in their bodies. When I asked what they wanted on the wall, they said: the truth. I had never had a commission quite like it.\"",
       "options": [
         {
-          "label": "Were any of them truly innocent?",
-          "response": "I cannot say — not entirely. Certainty was not available. I had evidence, law, and a community that needed to believe justice was being done. Some men I prosecuted were guilty of far less than the charge. I wrote this in my private ledger. I do not regret the writing. I regret the doing. But I would do it again."
+          "label": "Did you understand what they were building here?",
+          "response": "I understood what they were trying to build. Whether it could work — that I was not certain of. A cooperative factory in the middle of farmland, run by people who had never farmed and had spent their lives being exploited by the industry they now had to manage themselves. The odds were poor. They knew the odds were poor. They built it anyway."
         },
         {
-          "label": "How did you decide who to prosecute?",
-          "response": "Evidence first. Then judgment. I could not prosecute some men who had actively aided the British, because the evidence was insufficient. I could prosecute others who had done far less, because the evidence was there. Justice is not clean. It is simply the best option remaining once every cleaner option has been exhausted."
+          "label": "Why did the cooperative model fail economically?",
+          "response": "It failed the way idealism often fails: by encountering reality. The factory could not compete on price with standard industrial production. The farm required skills the residents had to acquire in real time, while also running a factory. What survived was not the economic experiment. It was the community. The human part. Perhaps they built the wrong thing with the right people."
         }
       ],
+      "follow_up": {
+        "prompt": "Shahn glances at the mural behind him and then back at you.",
+        "options": [
+          {
+            "label": "What is in the mural?",
+            "response": "Everything. The pogroms in Eastern Europe. The ships crossing the Atlantic. Ellis Island. The sweatshops. The strikes on the Lower East Side. The journey here. I compressed thirty years of history into one wall. When it was finished, an old man stood in front of it for a very long time without speaking. Then he said: 'Yes. That is how it was.' That was the only review I needed."
+          },
+          {
+            "label": "What happened to the town after the factory closed?",
+            "response": "It became what it had been building toward all along: a place. A place where people knew each other, where children grew up with the same history in their bones, where the mural was still on the wall. Artists came later — drawn by the quiet and the cheap land and the stubbornness of the community. The town is still there. Still small. Still arguing about what it was supposed to be. Perhaps that argument is the point."
+          }
+        ]
+      },
       "farrow_options": [
-        { "text": "He found a name in Forman's ledger — someone who had investigated this same thread forty years before him, and vanished.", "tag": "endangered" },
-        { "text": "He found Forman's principle — act imperfectly in the absence of certainty — and recognized it as his own situation.", "tag": "chose_to_stay" },
-        { "text": "He found a sealed box in the archive containing a partial manuscript by someone who had traced the same eight sites in 1847.", "tag": "found_and_fled" }
+        { "text": "Farrow found here the clearest version of the thread — ordinary people building something uncertain because building it was the honest response — and this is where he decided to stay.", "tag": "chose_to_stay" },
+        { "text": "Farrow found that someone in Roosevelt had been watching the same sites he was — and had left before he arrived.", "tag": "endangered" },
+        { "text": "Farrow found in the cooperative's original land records a connection to one of the other sites that should not have existed.", "tag": "found_and_fled" }
       ]
     },
-    "mystery": "What made Monmouth County unusually dangerous for both sides during the Revolutionary War?",
+    "mystery": "What made Jersey Homesteads (Roosevelt, NJ) unique among all New Deal resettlement communities?",
     "choices": [
-      "It was occupied by the British Army for the entire duration of the war",
-      "Its roughly equal split between Patriots and Loyalists made it a zone of brutal civil conflict",
-      "Monmouth County refused to send troops to either side, remaining officially neutral"
+      "It was the only New Deal settlement funded entirely by labor unions rather than the federal government",
+      "It was structured as a self-governing cooperative where residents collectively owned the factory, the farm, and the land",
+      "It was the only resettlement project to commission a major work of public art as part of its founding charter"
     ],
     "answer": 1,
-    "solved_text": "Elementary! With communities evenly split between Patriots and Loyalists, Monmouth County saw raiding parties, burned farms, and revenge killings between neighbors. It wasn't merely a war against the British — it was a civil war within the community itself.",
-    "chapter": "From Farrow's journal: 'I found Judge Forman's personal ledger in the courthouse archive. He prosecuted neighbors he had known for thirty years. Some wept. He wrote: I do not enjoy this. I do not know if I am right. I only know that a community without order is no community at all. The seventh fragment: justice is not certainty. It is the willingness to act, imperfectly, in the absence of certainty.'"
-  },
-  {
-    "id": "fort-hancock",
-    "name": "Fort Hancock at Sandy Hook",
-    "coords": [40.4616, -74.0056],
-    "character": {
-      "name": "Sergeant Eleanor Voss",
-      "role": "WWII-era signals operator, Fort Hancock, 1943"
-    },
-    "witness": "\"We guarded a harbor that never came under direct attack — yet we were never idle. The threat was always just over the horizon.\" — Fort Hancock soldier, WWII era",
-    "farrow_notes": "The fort was built for a world that changed before its concrete was fully cured. Established in 1895, its guns were designed to destroy battleships approaching the harbor mouth. But battleships stopped approaching — aircraft and long-range ordnance rendered close-harbor assault obsolete before the first major test came.\n\nThe fort adapted. It pivoted to anti-aircraft batteries, then to radar, then to Nike missiles during the Cold War. Each technology it acquired was already aging by the time it was fully installed. And yet — the people inside kept doing the work. Sergeant Voss's signals unit was tracking aircraft over the Atlantic for two full years before the coastal guns below them were even formally decommissioned.",
-    "examination": {
-      "claim": "\"We tracked aircraft over an ocean no enemy ever crossed. You might call that futile. I call it the reason they never crossed it. The work isn't meaningful because of what it finds. It's meaningful because it is done.\"",
-      "options": [
-        {
-          "label": "Did you ever doubt the work was meaningful?",
-          "response": "Every day. We were watching for something that never came. But the moment you stop watching is the moment it comes. You cannot stop watching because nothing has happened yet. That is precisely when you must keep watching. The absence of catastrophe is not an accident. It is the result of continued presence."
-        },
-        {
-          "label": "What happened to the unit when it was decommissioned?",
-          "response": "They thanked us for our service and handed the land to the park service. The guns that replaced the guns that replaced ours were decommissioned twenty years after we were. The lighthouse is still standing. It is the only thing here that outlasted all of us. Perhaps that says something."
-        }
-      ],
-      "farrow_options": [
-        { "text": "He came here last, found the final piece of his pattern, and then chose to stay — to become part of what he had spent his life recording.", "tag": "chose_to_stay" },
-        { "text": "He was followed to this location — and never came back from the dunes at the point.", "tag": "endangered" },
-        { "text": "He burned his final pages here deliberately — to protect something, or someone, connected to this site.", "tag": "found_and_fled" }
-      ]
-    },
-    "mystery": "What technological shift made Fort Hancock's massive coastal gun batteries obsolete?",
-    "choices": [
-      "Radar made it possible to detect ships so far away that guns were no longer needed",
-      "The rise of air power and missiles meant naval attacks would never again approach close enough for coastal guns",
-      "Nuclear submarines could deliver warheads underwater, bypassing all surface defenses"
-    ],
-    "answer": 1,
-    "solved_text": "Elementary! After WWII, attack aircraft and long-range missiles could threaten harbors from hundreds of miles away — far beyond the range of any shore gun. Fort Hancock pivoted to Nike missile batteries to counter airborne threats, and even those were soon superseded.",
-    "chapter": "From Farrow's journal — final entry, 1887: 'I have found it. The thing that connects them all. At every site across this county — the battlefield, the church, the well, the lighthouse, the forge, the courthouse, the lighthouse keeper's log — the same pattern repeats. Ordinary people, in extraordinary moments, chose to act. Not because they knew they would succeed. Because the moment asked it of them. I came here to find a secret. The secret is this: history is not made by history. It is made by presence. I think I understand now why I came. And I think I shall stay.'"
+    "solved_text": "Elementary! Jersey Homesteads was a producer-consumer cooperative — residents collectively owned the garment factory, the farmland, and the housing itself. This shared ownership model was unlike any other New Deal community. The factory failed; the cooperative spirit, and the community, did not.",
+    "chapter": "From Farrow's journal — final entry: 'They came from the tenements of the Lower East Side with union cards and sewing machines and built a cooperative farm town on forty acres of New Jersey. The factory failed. The farm persisted. The community renamed itself in grief. The mural is still on the wall. The last fragment, and the clearest: ordinary people building something they had no guarantee would work, because building it was the only honest response to the world they had come from. I came here to find a secret. That is the secret. And I think I shall stay.'"
   }
 ]

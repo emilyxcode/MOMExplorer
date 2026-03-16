@@ -743,6 +743,15 @@ html, body {
   line-height: 1.6;
 }
 
+.exam-followup-prompt {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--sepia-mid);
+  margin: 14px 0 10px;
+  opacity: 0.85;
+}
+
 .exam-challenge-label {
   font-family: 'Cinzel', serif;
   font-size: 0.68rem;

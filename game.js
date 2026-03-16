@@ -1,8 +1,8 @@
 /**
  * game.js (root) — Virtual player movement and proximity unlocking
  *
- * Arrow keys / WASD: move ~50m per keypress
- * Hold Shift: sprint (4× speed)
+ * Arrow keys / WASD: continuous movement while held
+ * Shift: 2× speed boost
  * Space / Enter: open case file for nearest unlocked site
  * Reset button: return to start, clear saved position
  *
@@ -10,10 +10,11 @@
  */
 
 const PlayerGame = (() => {
-  const STEP_DEG      = 0.00045;        // ~50m per keypress at 1×
-  const SPRINT_MULT   = 2;              // Shift adds 2× on top of slider
-  const UNLOCK_DIST_M = 500;            // metres to unlock a site
-  const START_POS     = [40.32, -74.17]; // Monmouth County centre
+  const STEP_PER_FRAME = 0.000006;   // degrees per animation frame at speed 1×
+  const SPRINT_MULT   = 2;           // Shift doubles speed on top of slider
+  const UNLOCK_DIST_M = 450;         // metres to unlock a site
+  const BTN_STEP      = 0.00020;     // per D-pad button click
+  const START_POS     = [40.32, -74.17];
   const POS_KEY       = 'momexplorer_pos';
   const SPEED_KEY     = 'momexplorer_speed';
 
@@ -21,6 +22,13 @@ const PlayerGame = (() => {
   let playerMarker = null;
   let leafletMap   = null;
   let shiftHeld    = false;
+
+  // Continuous movement: track which keys are currently down
+  const keysHeld = new Set();
+
+  // Throttle counters so we don't hit localStorage or checkProximity at 60 fps
+  let saveCounter      = 0;
+  let proximityCounter = 0;
 
   // Haversine (self-contained)
   function dist(lat1, lng1, lat2, lng2) {
@@ -44,20 +52,41 @@ const PlayerGame = (() => {
 
   function getSliderSpeed() {
     const slider = document.getElementById('speed-slider');
-    return slider ? parseInt(slider.value, 10) : 1;
+    return slider ? parseInt(slider.value, 10) : 5;
   }
 
-  function step() {
-    return STEP_DEG * getSliderSpeed() * (shiftHeld ? SPRINT_MULT : 1);
+  function getStepPerFrame() {
+    return STEP_PER_FRAME * getSliderSpeed() * (shiftHeld ? SPRINT_MULT : 1);
   }
 
-  function move(dlat, dlng) {
+  function applyMove(dlat, dlng) {
     playerPos[0] += dlat;
     playerPos[1] += dlng;
     playerMarker.setLatLng(playerPos);
-    leafletMap.panTo(playerPos, { animate: true, duration: 0.2 });
-    savePosition();
-    checkProximity();
+    // Follow player without easing so continuous movement stays fluid
+    leafletMap.setView(playerPos, leafletMap.getZoom(), { animate: false });
+
+    saveCounter++;
+    if (saveCounter >= 90) { savePosition(); saveCounter = 0; }
+
+    proximityCounter++;
+    if (proximityCounter >= 8) { checkProximity(); proximityCounter = 0; }
+  }
+
+  // requestAnimationFrame movement loop
+  function movementLoop() {
+    // Don't move while a panel is open
+    const caseOpen = document.getElementById('case-panel')?.classList.contains('visible');
+    if (!caseOpen && keysHeld.size > 0) {
+      const s = getStepPerFrame();
+      let dlat = 0, dlng = 0;
+      if (keysHeld.has('ArrowUp')    || keysHeld.has('w') || keysHeld.has('W')) dlat += s;
+      if (keysHeld.has('ArrowDown')  || keysHeld.has('s') || keysHeld.has('S')) dlat -= s;
+      if (keysHeld.has('ArrowLeft')  || keysHeld.has('a') || keysHeld.has('A')) dlng -= s;
+      if (keysHeld.has('ArrowRight') || keysHeld.has('d') || keysHeld.has('D')) dlng += s;
+      if (dlat !== 0 || dlng !== 0) applyMove(dlat, dlng);
+    }
+    requestAnimationFrame(movementLoop);
   }
 
   function checkProximity() {
@@ -95,7 +124,7 @@ const PlayerGame = (() => {
         ? '⚡ Sprint — Arrow keys / WASD • Space to inspect'
         : 'Arrow keys / WASD to move • Space to inspect';
 
-    // Hint when between 500m and 1500m of a locked site
+    // Hint when between UNLOCK_DIST_M and 1500m of a locked site
     if (nearestLoc && nearestDist > UNLOCK_DIST_M && nearestDist < 1500
         && !Game.isUnlocked(nearestLoc.id) && !Game.isSolved(nearestLoc.id)) {
       UI.showProximityHint(Math.round(nearestDist));
@@ -129,7 +158,6 @@ const PlayerGame = (() => {
   }
 
   function init() {
-    // Restore saved position (or start at centre)
     loadPosition();
 
     leafletMap = MapView._leafletMap || document.getElementById('map')._leaflet_map;
@@ -147,11 +175,11 @@ const PlayerGame = (() => {
     leafletMap.setView(playerPos, 11);
     checkProximity();
 
-    // Show saved name in HUD (title screen may still be fading)
+    // Show saved name in HUD
     const savedName = localStorage.getItem('momexplorer_name');
     if (savedName && typeof Story !== 'undefined') Story.updateHudName(savedName);
 
-    // Speed slider — restore saved value and wire up live updates
+    // Speed slider
     const slider = document.getElementById('speed-slider');
     const label  = document.getElementById('speed-label');
     const savedSpeed = parseInt(localStorage.getItem(SPEED_KEY), 10);
@@ -162,17 +190,26 @@ const PlayerGame = (() => {
       localStorage.setItem(SPEED_KEY, slider.value);
     });
 
-    // Shift sprint tracking
+    // Track shift for sprint
     document.addEventListener('keydown', e => {
-      if (e.key === 'Shift') { shiftHeld = true; checkProximity(); }
+      if (e.key === 'Shift') { shiftHeld = true; }
     });
     document.addEventListener('keyup', e => {
-      if (e.key === 'Shift') { shiftHeld = false; checkProximity(); }
+      if (e.key === 'Shift') { shiftHeld = false; }
     });
 
-    // Keyboard movement
+    // Key tracking for continuous movement
     document.addEventListener('keydown', e => {
-      if (document.activeElement && document.activeElement.tagName === 'INPUT') return;
+      if (document.activeElement?.tagName === 'INPUT') return;
+
+      const moveKeys = ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','W','s','S','a','A','d','D'];
+      if (moveKeys.includes(e.key)) {
+        e.preventDefault();
+        keysHeld.add(e.key);
+        return;
+      }
+
+      // Case panel: Space/Enter closes it
       if (!document.getElementById('case-panel').classList.contains('hidden')) {
         if (e.key === ' ' || e.key === 'Enter') {
           e.preventDefault();
@@ -181,23 +218,29 @@ const PlayerGame = (() => {
         return;
       }
 
-      const s = step();
-      switch (e.key) {
-        case 'ArrowUp':    case 'w': case 'W': e.preventDefault(); move( s,  0); break;
-        case 'ArrowDown':  case 's': case 'S': e.preventDefault(); move(-s,  0); break;
-        case 'ArrowLeft':  case 'a': case 'A': e.preventDefault(); move(0, -s);  break;
-        case 'ArrowRight': case 'd': case 'D': e.preventDefault(); move(0,  s);  break;
-        case ' ':
-        case 'Enter': e.preventDefault(); openNearest(); break;
+      // Space/Enter away from panel: open nearest
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        openNearest();
       }
     });
 
-    // Button controls (always normal speed)
-    document.getElementById('panUp').addEventListener('click',    () => move( STEP_DEG * 3,  0));
-    document.getElementById('panDown').addEventListener('click',  () => move(-STEP_DEG * 3,  0));
-    document.getElementById('panLeft').addEventListener('click',  () => move(0, -STEP_DEG * 3));
-    document.getElementById('panRight').addEventListener('click', () => move(0,  STEP_DEG * 3));
+    document.addEventListener('keyup', e => {
+      keysHeld.delete(e.key);
+      // Also clear case variants (e.g. 'W' held when capslock toggles to 'w')
+      keysHeld.delete(e.key.toLowerCase());
+      keysHeld.delete(e.key.toUpperCase());
+    });
+
+    // D-pad buttons (discrete steps, slightly larger than per-frame)
+    document.getElementById('panUp').addEventListener('click',    () => { applyMove( BTN_STEP, 0); savePosition(); checkProximity(); });
+    document.getElementById('panDown').addEventListener('click',  () => { applyMove(-BTN_STEP, 0); savePosition(); checkProximity(); });
+    document.getElementById('panLeft').addEventListener('click',  () => { applyMove(0, -BTN_STEP); savePosition(); checkProximity(); });
+    document.getElementById('panRight').addEventListener('click', () => { applyMove(0,  BTN_STEP); savePosition(); checkProximity(); });
     document.getElementById('resetPan').addEventListener('click', resetPosition);
+
+    // Start the movement loop
+    requestAnimationFrame(movementLoop);
   }
 
   return { init, resetToStart: resetPosition };
