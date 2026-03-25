@@ -28,8 +28,8 @@
     <div>Distance: <span id="distance">—</span></div>
     <div id="action">Use arrow keys or WASD to explore</div>
     <div id="speed-row">
-      Speed: <input type="range" id="speed-slider" min="1" max="20" value="5" />
-      <span id="speed-label">1×</span>
+      Speed: <input type="range" id="speed-slider" min="1" max="20" value="8" />
+      <span id="speed-label">8×</span>
     </div>
   </div>
 
@@ -104,6 +104,17 @@
   <!-- Finale overlay (shown when all 8 are solved) -->
   <div id="finale-modal" class="hidden">
     <div id="finale-inner"></div>
+  </div>
+
+  <!-- Story 2 intro modal -->
+  <div id="story2-modal" class="hidden">
+    <div id="story2-inner">
+      <div id="story2-seal">🕵</div>
+      <div id="story2-from">A second letter from 221B Baker Street</div>
+      <h1 id="story2-title">The Edited County</h1>
+      <div id="story2-text"></div>
+      <button id="story2-begin" class="hidden">Begin Chapter II →</button>
+    </div>
   </div>
 
   <!-- Dossier overlay -->

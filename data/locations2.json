@@ -1,0 +1,257 @@
+[
+  {
+    "id": "long-branch-garfield",
+    "name": "Long Branch — President Garfield's Last Days",
+    "coords": [40.2986, -73.9882],
+    "character": {
+      "name": "Dr. Willard Bliss",
+      "role": "President Garfield's physician, summer 1881"
+    },
+    "witness": "\"The sea air was prescribed. Five hundred men built a rail spur to his door in a single night. He died here anyway, in New Jersey, seventy-nine days after a man shot him in Washington. What killed him was not the bullet.\" — Monmouth County Historical Record, 1882",
+    "farrow_notes": "He was shot on July 2nd, 1881, at a Washington railway station. The bullet lodged near his spine but missed every vital structure. The physicians who treated him probed the wound repeatedly with unsterilized fingers and instruments, introducing infection throughout. When his condition worsened in the August heat, the decision was made to bring him to Elberon — here on this Long Branch shore — for the sea air.\n\nThe railroad built a temporary spur overnight: 3,200 feet of track to bring the president's car directly to the cottage door. Five hundred men worked through the night. They finished at dawn. Garfield arrived at noon.\n\nHe died on September 19th. The autopsy found the bullet resting harmlessly in a small cyst, far from any vital structure. What had killed him was a massive infected cavity running most of the length of his torso, introduced by the hands of confident physicians operating on an obsolete theory of disease.\n\nThe sea air had nothing to do with it.\n\nSeven presidents summered at Long Branch. Garfield is the one history does not know how to remember here, because the honest account of what happened to him is not a comfortable account of those who tried to save him.",
+    "examination": {
+      "claim": "\"We moved heaven and earth to save him. Five hundred men built that track in a single night. The whole country watched and prayed. The sea air was the best medicine available. We did everything that could be done.\"",
+      "options": [
+        {
+          "label": "Did the bullet actually kill him?",
+          "response": "No. The autopsy — conducted by Surgeon General Barnes — found the bullet resting harmlessly in a cyst, far from any vital structure. Garfield almost certainly would have survived if the wound had been left alone and kept clean. Medical practice in 1881 had not yet fully adopted Lister's germ theory. The instruments used were unsterilized. The physicians introduced what they were trying to prevent."
+        },
+        {
+          "label": "What was the actual cause of death?",
+          "response": "Sepsis — massive, whole-body infection introduced by the physicians' probing. By September, the original wound had expanded to a two-foot cavity packed with contaminated tissue. The sea air, the elaborate train journey, the five hundred men who built the spur line overnight — none of it addressed the actual problem. Lister's antiseptic work had been published in 1867. American medicine had simply chosen not to adopt it quickly enough."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Bliss presses his hands together. He knows what the next question will be.",
+        "options": [
+          {
+            "label": "Did the physicians know they might be causing harm?",
+            "response": "No. That is the tragedy, not the excuse. They believed completely in what they were doing. Germ theory was still contested in American medicine in 1881. Most American physicians followed the older miasma theory — that disease came from bad air, not from invisible organisms on their hands and instruments. They were wrong. They did not know they were wrong. That is how the most permanent damage is done: by confident men operating on incomplete knowledge."
+          },
+          {
+            "label": "What happened to Dr. Bliss afterward?",
+            "response": "His reputation was destroyed. The autopsy revealed the true extent of the wound. He submitted a bill to Congress for over $25,000 for his services. Congress paid him $6,500. He died in 1889. His bill and its rejection are perhaps the most honest accounting in the record of what actually happened in those seventy-nine days at Elberon."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here a clear version of the thread — official memory preserves the extraordinary effort and is quiet about the ordinary error.", "tag": "chose_to_stay" },
+        { "text": "Farrow found that the full story of the contaminated probing had been softened in the contemporary press at the request of the Republican Party.", "tag": "found_and_fled" },
+        { "text": "Farrow found evidence that someone in Monmouth County had been systematically removing the more damning primary sources from local archives.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What actually killed President Garfield, who died in Elberon (Long Branch), New Jersey in September 1881?",
+    "choices": [
+      "The bullet lodged near his spine, which slowly damaged vital organs over 79 days",
+      "Sepsis caused by repeated unsterile probing of the wound by his physicians",
+      "Heart failure accelerated by the stress of the two-month journey from Washington to the shore"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! The autopsy confirmed the bullet had missed every vital structure and would have caused no fatal damage. Garfield died of massive sepsis — introduced by physicians who probed the wound repeatedly with unsterilized instruments. Antiseptic technique was already known; American medicine had not yet adopted it.",
+    "chapter": "From Farrow's second journal: 'The spur line built overnight by five hundred men is the monument Long Branch remembers. The wound that would have healed if left alone is the history it has preferred to forget. The first fragment of the second thread: official memory preserves the extraordinary effort. It tends to be quieter about the ordinary error.'"
+  },
+  {
+    "id": "asbury-park-bradley",
+    "name": "Asbury Park — Bradley's Temperance Experiment",
+    "coords": [40.2197, -74.0113],
+    "character": {
+      "name": "James A. Bradley",
+      "role": "Founder of Asbury Park, 1871"
+    },
+    "witness": "\"I have built this town to a purpose. Every lot sold carries a covenant against the sale of intoxicating liquors. I intend it to stand while I stand.\" — James A. Bradley, 1875",
+    "farrow_notes": "Bradley bought a thousand acres of pine barrens and scrub in 1871 for $90,000 and named the new town after Bishop Francis Asbury, founder of American Methodism. He laid the streets himself, sold lots with strict temperance covenants, and installed a pier, a pavilion, and a set of rules governing public behavior down to the clothing permitted on the beach.\n\nThe rules were extensive. Women could not enter the water in a manner deemed immodest. Alcohol was prohibited. Commercial establishments closed on Sunday. Bradley patrolled the beach personally in the early years, enforcing his rules with the confidence of a man who believed absolutely that he was correct.\n\nHe was also the largest landlord on the Jersey Shore. The temperance covenant was, among other things, a property control mechanism. It kept the resort character he wanted, which kept property values high, which maintained his investment. The moral project and the business project were, in his case, aligned — which made it genuinely difficult to tell which motive drove which decision.\n\nThe town became one of the most successful resort destinations on the East Coast. It also became famous, eventually, for something Bradley had not planned: the music clubs of the 1960s and 1970s that gave the world artists he could not have imagined and almost certainly would not have approved of. The bones of his town were still there. The spirit was not what he had built.",
+    "examination": {
+      "claim": "\"Every plank of this boardwalk was laid by my design. Every street named by my hand. I built this town to last — clean, orderly, purposeful. The covenant was built into the deeds themselves. It will outlast me.\"",
+      "options": [
+        {
+          "label": "How did the temperance covenant work legally?",
+          "response": "Every lot I sold carried a deed restriction — a covenant running with the land — prohibiting the sale or manufacture of intoxicating liquors on the property. In 1871, this was binding and enforceable. I believed it would remain so indefinitely. In later decades such restrictions were challenged and eroded — some on public accommodation grounds, some simply abandoned when enforcement became impractical. The covenant did not outlast me by as long as I had intended."
+        },
+        {
+          "label": "Did the residents support the rules?",
+          "response": "The ones who came seeking what I was selling, yes. The difficulty is that a successful resort attracts people who did not read the covenant before they arrived. By the 1890s there were already tensions between those who had come for the quiet orderly resort I had built and those who had come for the shore and expected to drink at the shore. I patrolled the beach personally for years. I could not patrol it forever."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Bradley straightens his collar with great precision.",
+        "options": [
+          {
+            "label": "Was your vision primarily moral or primarily commercial?",
+            "response": "An honest question, and I will give you an honest answer: I cannot entirely separate them. The moral project and the commercial project were, in my case, the same. A well-ordered, dry, family-oriented resort is also a profitable real estate investment. I do not believe this makes the moral project less genuine. I believe it makes it more practical. The things that endure are usually the ones that also make money. That is not a comfortable thought, but I believe it to be true."
+          },
+          {
+            "label": "What do you think of what Asbury Park became?",
+            "response": "I have seen the plans of what came after, and I confess they do not resemble my plans. The venues. The crowds. The music. It is not what I built. But I will say this: they are still using the boardwalk. They are still using the streets I laid. The bones of what I made are still there. Perhaps that is sufficient. Perhaps it is not for me to say what bones are for."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here evidence that moral vision and self-interest are not always opposites — sometimes they cannot be separated.", "tag": "chose_to_stay" },
+        { "text": "Farrow found in Bradley's deed records that the temperance covenant had been applied selectively in ways the historical record does not acknowledge.", "tag": "found_and_fled" },
+        { "text": "Farrow found a file at the Monmouth County courthouse concerning the Bradley estate that someone had removed from the standard public archive.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What mechanism did James Bradley use to enforce Asbury Park's temperance rules for decades after founding the town?",
+    "choices": [
+      "Municipal ordinances passed by the Asbury Park town council, which Bradley controlled",
+      "Deed covenants on every lot sold, legally binding the property against the sale of alcohol",
+      "Private security employed by the Camp Meeting Association, which owned the underlying land"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Bradley sold every lot with a deed restriction — a covenant running with the land — prohibiting the sale or manufacture of alcohol on the property. This private legal mechanism was more durable than municipal ordinance and could not easily be voted away. The covenants persisted long after Bradley's death, though courts eventually eroded their enforcement.",
+    "chapter": "From Farrow's second journal: 'He built the town to a purpose and tied the purpose to the property. The covenant and the investment were the same thing. What I found in Asbury Park was not a hypocrite. I found a man who was entirely sincere about something that was also convenient. That is a more complicated kind of character than history usually allows for. The second fragment: moral vision and self-interest are not always opposites. Sometimes they simply cannot be separated.'"
+  },
+  {
+    "id": "freehold-molly-pitcher",
+    "name": "Freehold — The Molly Pitcher Controversy",
+    "coords": [40.2637, -74.2736],
+    "character": {
+      "name": "Mary Ludwig Hays McCauley",
+      "role": "The woman most likely behind the 'Molly Pitcher' legend, 1778"
+    },
+    "witness": "\"She was called Molly Pitcher — but no one who used that name at Monmouth wrote it down until decades later. What we have is a pension and a legend, and the question of which came first.\" — Monmouth County Historical Society research note",
+    "farrow_notes": "The well attributed to Molly Pitcher stands at Court Street in Freehold, marked by a bronze plaque. The legend: Mary Ludwig Hays, wife of artilleryman William Hays, carried water to soldiers at Monmouth in June 1778. When her husband fell, she stepped to the cannon herself and continued firing.\n\nThe pension record is real. The Pennsylvania Assembly voted Mary Hays McCauley an annuity in 1822, citing her services during the Revolutionary War. That is the only contemporary official document connecting her to any specific military action.\n\nThe story as usually told — the water-carrying, the cannon — appears in print for the first time in the 1840s, sixty years after the battle. The name 'Molly Pitcher' does not appear in any document from 1778. There is a passing reference in one soldier's diary to a 'Molly' who brought water, but no surname, no description, no cannon.\n\nThere is also a separate tradition originating in a different regiment, describing a different woman performing similar acts at a different point in the battle.\n\nHistorians now generally believe that 'Molly Pitcher' is a composite figure — a name applied retroactively to several women who performed service at Monmouth, with Mary Hays as the most likely specific referent. This does not make her less real. It may make her more representative.",
+    "examination": {
+      "claim": "\"I carried water. I have never claimed otherwise. What I may or may not have done at the cannon — that I leave to others to say. The pension speaks for itself.\"",
+      "options": [
+        {
+          "label": "Did you fire the cannon?",
+          "response": "I was there. The rest is what people have said about me, and I am not responsible for what people have said about me. The pension was real, and the Pennsylvania Assembly did not give pensions to women for water-carrying alone. Beyond that, what I did or did not do at a specific moment sixty years ago has become a story that belongs to the story more than to me. I am not certain I could separate them anymore even if I wished to."
+        },
+        {
+          "label": "Is Molly Pitcher one person or many?",
+          "response": "One woman brought water. Several women may have brought water. One woman may have fired a cannon. The name arrived decades later and was given to a type of woman, not to a specific woman — and then the type was made into a specific woman for the sake of the monument. I understand why this happens. History needs particular faces on general acts. The question is whether the face chosen was the right one, and whether it matters that we cannot be entirely certain."
+        }
+      ],
+      "follow_up": {
+        "prompt": "A long pause. The well is just outside the window.",
+        "options": [
+          {
+            "label": "Why does the legend matter if it is not entirely accurate?",
+            "response": "Because the thing the legend represents is accurate. Women did this work. They were present at Monmouth — not as spectators but as participants. The legend preserves that truth in a form people can remember and point to. If accuracy requires replacing a legend with a probability — 'some women, possibly including one named Mary, may have done some version of these things' — the truth survives the correction, but the monument does not. I am not certain which matters more, in the long run."
+          },
+          {
+            "label": "What do you think the pension was actually for?",
+            "response": "I think it was for service to the army during the Revolutionary War. The Assembly chose not to be more specific than that. So do I. What I can tell you is that the pension was real, my presence at Monmouth was real, and the things I did there were real enough to be remembered forty years later by people who had seen them. Whether the cannon story is accurate is a question for historians. Whether I was there is not."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here a composite truth — one that does not become less true when we discover it is composite, but does become harder to put on a plaque.", "tag": "chose_to_stay" },
+        { "text": "Farrow found a document in the Monmouth County archive that changed his interpretation of the 1822 pension record.", "tag": "found_and_fled" },
+        { "text": "Farrow found that his inquiry into the legend had attracted attention from people with a specific interest in maintaining the official version.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What do historians now believe about the identity of 'Molly Pitcher'?",
+    "choices": [
+      "She was a specific woman named Mary Ludwig Hays, fully documented in contemporary 1778 records",
+      "She is almost certainly a composite figure — a name applied retroactively to several women, with Mary Hays the likeliest specific referent",
+      "She was entirely invented by 19th-century writers and has no connection to any real individual"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Historians have found no contemporary (1778) use of the name 'Molly Pitcher.' The legend appears in print sixty years after the battle and conflates accounts from multiple sources. Mary Ludwig Hays McCauley is the most likely real referent — her 1822 pension confirms Revolutionary War service — but the famous stories almost certainly combine the deeds of several women.",
+    "chapter": "From Farrow's second journal: 'The monument is real. The pension is real. The legend is an argument. A composite truth does not become less true when we discover it is composite. It becomes harder to use on a plaque. The third fragment: history needs particular faces on general acts. The question is whether those faces should be allowed to become more certain than the evidence actually permits.'"
+  },
+  {
+    "id": "keyport-oysters",
+    "name": "Keyport — The Oyster Capital That Vanished",
+    "coords": [40.4388, -74.1893],
+    "character": {
+      "name": "Thomas Walling",
+      "role": "Keyport oysterman, 1890s"
+    },
+    "witness": "\"We harvested forty thousand bushels in a good year. We could not see the end of it. We could not see that we were already inside the end.\" — oral history, Keyport Fishermen's Association, 1920",
+    "farrow_notes": "Keyport sits on the western shore of Raritan Bay, and for three decades in the late nineteenth century it was the oyster capital of the Jersey Shore. The bay produced Atlantic oysters in extraordinary abundance. The town's wharves loaded flat-bottomed scows with bushel baskets for New York and Philadelphia markets every week.\n\nBy 1910, it was over.\n\nThe cause was not primarily overharvesting, though overharvesting contributed. The proximate cause was industrial discharge. New Jersey's chemical and manufacturing industries dumped waste into the Raritan watershed throughout the 1890s and 1900s. Chromium, lead, and organic pollutants entered the bay. The oysters — being filter feeders — concentrated the contamination in their tissues. Public health authorities in New York closed the Raritan Bay oyster beds in 1909.\n\nThe town adapted, as towns do. The wharves were eventually converted to pleasure boat docks. The oyster companies closed or moved to less contaminated waters. The industry never returned.\n\nAn oyster restoration project began in the early 21st century, reintroducing seed stock and monitoring water quality. The results have been modest. The productivity of 1890 has not returned. When I asked at the local library for the file of newspaper coverage from 1905 to 1912, I was told the collection for those years was incomplete.",
+    "examination": {
+      "claim": "\"We could not have known. The tide ran in from the west and the water looked clean. The oysters were fat and the baskets were full. There was nothing in the water you could see.\"",
+      "options": [
+        {
+          "label": "When did you first notice something was wrong?",
+          "response": "The oysters began to taste different. Not bad exactly — different. Smaller. The set — the young oysters attaching to cultch — was weaker. We thought it was weather. We thought it was a bad year. In the oyster trade, you are always waiting for next year to be better. By the time we understood it wasn't weather, the beds were already gone."
+        },
+        {
+          "label": "Where was the contamination coming from?",
+          "response": "From the rivers. The Raritan drainage — the Millstone, the South Branch, the factories along the upper Raritan. It was not one company. It was everything built along that watershed over thirty years. The chrome works. The rubber factories. The tanneries. Each one discharged what it had, and the bay collected it all, and the oysters collected what the bay collected. We were downstream from everything built to make New Jersey prosperous."
+        }
+      ],
+      "follow_up": {
+        "prompt": "He looks at the water. The wharves are quiet now.",
+        "options": [
+          {
+            "label": "Could it have been prevented?",
+            "response": "Yes. The industrial waste was discharged because there were no laws against it, and no one whose business it was to ask what it was doing to downstream communities. The oystermen knew something was wrong in the early 1900s. They had no mechanism to make the factories hear them. The factories were in different counties, different jurisdictions. The damage was diffuse. No one person was responsible. That is how the most permanent damage is done: when it is no one's fault because everyone's contribution is small."
+          },
+          {
+            "label": "What happened to the oystermen?",
+            "response": "Some went north to the Chesapeake. Some went to clam beds off Long Island. Some stayed and tried to hold on until the bay recovered. It did not recover in their lifetimes. The ones who stayed mostly became boat repairmen. There is always a boat that needs repairing, even when there is nothing left to catch. That is not a satisfying account of what happened to people who had built actual lives here. But it is the honest one."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here a pattern of institutional invisibility — the damage no one was responsible for because everyone's contribution was small.", "tag": "chose_to_stay" },
+        { "text": "Farrow found in the Keyport municipal records that the contamination had been reported to county officials in 1903 — six years before the official closure.", "tag": "found_and_fled" },
+        { "text": "Farrow found that the missing newspaper archive from 1905–1912 had been removed at the request of a specific party whose name appeared in the industrial discharge records.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What destroyed Keyport's once-thriving oyster industry — one of the most productive shellfish ports on the East Coast?",
+    "choices": [
+      "Overharvesting by competing fleets depleted the oyster beds faster than they could reproduce",
+      "Industrial pollution of Raritan Bay from New Jersey factories upstream forced the closure of the beds in 1909",
+      "A parasitic disease wiped out the native oyster population throughout New York Harbor"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! Raritan Bay oysters were closed to harvest in 1909 by New York public health authorities after industrial contamination — chromium, lead, and organic waste from factories along the Raritan watershed — made the filter-feeding oysters unsafe to eat. Keyport never recovered its position as an oyster port.",
+    "chapter": "From Farrow's second journal: 'The damage was no one's fault because everyone's contribution was small. The factory upstream discharged a little. The tannery discharged a little. The chrome works discharged a little. The oystermen downstream lost everything. The fourth fragment, and perhaps the most practical: the absence of individual responsibility is not the same as the absence of collective harm. The bay collected it all, and the oysters collected what the bay collected.'"
+  },
+  {
+    "id": "matawan-creek",
+    "name": "Matawan Creek — The 1916 Shark Attacks",
+    "coords": [40.4218, -74.2166],
+    "character": {
+      "name": "Dr. Frederick Lucas",
+      "role": "Director, American Museum of Natural History, 1916"
+    },
+    "witness": "\"In twelve days in July 1916, five people were attacked and four were killed along the New Jersey shore. The scientific community initially denied that Atlantic sharks could be responsible. They were wrong.\" — National Geographic, 1975",
+    "farrow_notes": "The attacks began on July 1st at Beach Haven — a swimmer attacked in shallow water and killed. Then Spring Lake, July 6th, another death. Both were dismissed or disputed by experts who insisted that Atlantic sharks did not attack humans, that the New Jersey coast was safe, and that the attacks must have been caused by a sea turtle or a large fish.\n\nOn July 12th, a twelve-year-old boy was attacked and killed in Matawan Creek — miles from the ocean, in brackish water so shallow a man could stand in it. A man who entered the water to save him was attacked and killed. A third person was severely injured miles further upstream, the same afternoon.\n\nThe creek attacks shattered the expert consensus. A bull shark was later caught in the creek near Matawan and found to have human remains in its stomach. The attacks forced a fundamental revision of scientific understanding of shark behavior — specifically the ability of bull sharks to survive in fresh and brackish water and to hunt in shallow, confined spaces.\n\nThe cultural consequence was lasting. The era of organized shark hunts along the American coast began in 1916. A novelist named Peter Benchley, drawing directly on these events, published a book in 1974 that became a film the following year. I note, without further comment, that the film depicts a municipal authority suppressing public warnings about shark danger for economic reasons.",
+    "examination": {
+      "claim": "\"The evidence we had was clear: Atlantic sharks do not attack humans in water this shallow, this far from the sea. The scientific consensus was formed on the best available data. The consensus was wrong. That is a different thing from having been careless.\"",
+      "options": [
+        {
+          "label": "How did the expert consensus get it so wrong?",
+          "response": "The consensus was based on limited data and — I will be honest about this — a combination of genuine belief and financial interest. The New Jersey resort industry was at its peak in July 1916. Acknowledging a genuine shark threat would have emptied the beaches. The experts who publicly denied the risk were not all acting cynically. Some genuinely believed the evidence. But the pressure to find an alternative explanation was strong, and it shaped what people were willing to conclude."
+        },
+        {
+          "label": "What made the creek attacks so significant?",
+          "response": "They occurred in conditions that experts had declared impossible. Miles from the ocean. Brackish water. Shallow enough to stand. When the impossible happened twice in one afternoon in the same creek, it was no longer possible to maintain the consensus. The creek attacks specifically forced a revision of everything believed — or assumed — about bull shark behavior in American waters. That is the most disruptive kind of evidence: not the kind that disproves a theory, but the kind that makes a theory's existence seem inexplicable."
+        }
+      ],
+      "follow_up": {
+        "prompt": "Lucas sets down his notes.",
+        "options": [
+          {
+            "label": "Why did the expert consensus persist through the first two ocean attacks?",
+            "response": "Because it was convenient, and because there was precedent for it. The received wisdom of 1916 was that sharks did not attack humans in northern Atlantic waters — full stop. When something impossible happens once, experts look for another explanation. When it happens a second time, they look harder. It takes a third impossible event, in impossible conditions, before the theory itself is questioned rather than the evidence. This is not stupidity. It is the predictable behavior of any system that has invested in a particular answer."
+          },
+          {
+            "label": "What changed after 1916?",
+            "response": "Everything, and not entirely for the better. The organized shark hunts were destructive and largely ineffective. The cultural shift toward viewing sharks as inherently dangerous persisted long past its usefulness. The truth — that certain shark species, under certain conditions, will attack humans — became conflated with a simpler story: that sharks are monsters. The scientific revision was accurate. The cultural revision overcorrected, dramatically, and produced consequences that are still playing out."
+          }
+        ]
+      },
+      "farrow_options": [
+        { "text": "Farrow found here the pattern at its starkest — a consensus held by people with reasons to hold it, shattered by events in a creek that was supposed to be safe.", "tag": "chose_to_stay" },
+        { "text": "Farrow found correspondence between New Jersey resort operators and a prominent marine biologist suggesting the denial was more coordinated than it appeared in the public record.", "tag": "found_and_fled" },
+        { "text": "Farrow found that someone had flagged his research inquiry at the Matawan municipal library and that he was being followed when he left.", "tag": "endangered" }
+      ]
+    },
+    "mystery": "What made the July 1916 Matawan Creek shark attacks scientifically significant?",
+    "choices": [
+      "They were the largest number of human shark fatalities recorded in a single day in US history",
+      "They occurred in brackish water miles inland, disproving the expert consensus that Atlantic sharks posed no danger to humans",
+      "They led directly to the passage of the first federal shark protection laws in the United States"
+    ],
+    "answer": 1,
+    "solved_text": "Elementary! The Matawan attacks shattered the scientific consensus that sharks posed no danger to humans in northeastern US waters. The creek attacks — miles inland, in brackish water — were so far outside prevailing belief that they forced a complete revision of what was known about bull shark behavior. Peter Benchley's novel Jaws (1974) drew directly on these events.",
+    "chapter": "From Farrow's second journal — final entry: 'We do not know what we do not know until what we do not know arrives in a creek twelve miles from the sea and makes itself impossible to ignore. The fifth and final fragment of the second thread: the consensus was wrong not because the scientists were careless, but because the evidence available before July 1916 genuinely supported it. That is the most unsettling kind of wrongness — the kind that arises from the honest application of incomplete knowledge. I have completed both threads now. I believe I understand what Monmouth County is. I intend to stay here and keep teaching it to people who can still be surprised.'"
+  }
+]

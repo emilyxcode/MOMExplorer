@@ -1165,6 +1165,115 @@ html, body {
   color: var(--sepia-dark);
 }
 
+/* ---- Story 2 intro modal ---- */
+
+#story2-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--sepia-dark);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  transition: opacity 0.6s;
+}
+
+#story2-modal.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#story2-inner {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  padding: 32px 28px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08),
+              0 0 0 7px var(--gold-dark),
+              0 16px 48px rgba(0,0,0,0.5);
+  background: rgba(30, 18, 8, 0.6);
+}
+
+#story2-seal {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 40% 35%, #b02020, var(--red-seal) 60%, #5a0e0e);
+  border-radius: 50%;
+  border: 3px solid rgba(201, 168, 76, 0.5);
+  box-shadow: 0 0 0 6px rgba(139, 26, 26, 0.18),
+              0 6px 20px rgba(0,0,0,0.5),
+              inset 0 2px 4px rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+#story2-from {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+#story2-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+#story2-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--parchment);
+  line-height: 1.8;
+  min-height: 100px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+#story2-text .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--gold);
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+#story2-begin {
+  background: var(--gold-dark);
+  color: var(--parchment);
+  border: 1.5px solid var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  padding: 11px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+#story2-begin:hover {
+  background: var(--gold);
+  color: var(--sepia-dark);
+}
+
 /* ---- Utility ---- */
 
 .hidden {

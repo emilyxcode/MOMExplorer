@@ -324,7 +324,9 @@ const UI = (() => {
   }
 
   function updateDossierCount() {
-    document.getElementById('dossier-count').textContent = Game.solvedCount();
+    const locs = MapView.getLocations();
+    const count = locs.filter(l => Game.isSolved(l.id)).length;
+    document.getElementById('dossier-count').textContent = count;
   }
 
   // ---- Toasts and notifications ----
@@ -363,7 +365,11 @@ const UI = (() => {
 
 // Bootstrap everything once the DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
+  const storyNum = parseInt(localStorage.getItem('momexplorer_story'), 10) || 1;
   await MapView.init();
+  if (storyNum === 2) {
+    await MapView.loadNewStory('data/locations2.json');
+  }
   UI.init();
   GPS.start();
   UI.updateDossierCount();

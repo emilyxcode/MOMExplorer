@@ -56,10 +56,10 @@
     "coords": [40.4152, -74.1678],
     "character": {
       "name": "Gertrude Neidlinger",
-      "role": "Caretaker and self-appointed historian, Spy House Museum, 1960s"
+      "role": "Curator, Spy House Museum Corporation, c. 1970s"
     },
-    "witness": "\"From this bluff, Patriots watched every British sail that moved through Raritan Bay. This house was the center of a twelve-man intelligence ring that altered the course of the Revolution.\" — Museum placard, installed 1963",
-    "farrow_notes": "The house itself is genuine — built by Thomas Whitlock in 1663, making it among the oldest domestic structures in New Jersey. The view from the upper window across Raritan Bay is striking: the shipping channel is visible for miles in both directions. I understand immediately why someone thought this would make an excellent spy post.\n\nThe problem is the documentation. I spent two days at the Monmouth County Historical Society looking for the intelligence network that supposedly operated from this bluff during the Revolution. I found nothing. No contemporary account. No Continental Army record. No British report noting a signals problem from Port Monmouth. No name in the militia rolls connected to the specific espionage story told on the museum placard.\n\nWhat I found instead was a reference to a part-time caretaker hired in the early 1960s to maintain the property and generate visitor interest. The 'spy house' legend appears to trace to her. The house is genuine. The legend is not.",
+    "witness": "\"From this bluff, Patriots watched every British sail that moved through Raritan Bay. This house was the center of a twelve-man intelligence ring that altered the course of the Revolution.\" — Spy House Museum placard",
+    "farrow_notes": "The Seabrook-Wilson House is genuinely historic. According to the Monmouth County Park System's own restoration research, it began as a small cabin about 1720 — not 1663, as the popular legend claims — and was expanded over the following 175 years by generations of the Seabrook and Wilson families: ship owners and captains, a Revolutionary War militia officer, local merchants and investors. By 1896 it had grown to its present size. The view from the upper rooms across Raritan Bay is striking; the shipping channel is visible for miles.\n\nThe problem is the documentation for the intelligence network the museum describes. I spent two days at the Monmouth County Historical Society looking for the twelve-man spy ring. I found nothing. No contemporary account. No Continental Army record. No British report noting a signals problem from Port Monmouth. No name in the militia rolls connected to the specific espionage story on the museum placard.\n\nMiddletown Township purchased the property in 1967 after concerned residents sought to save it from demolition. The Spy House Museum Corporation operated it as a local history museum for over twenty years afterward. The 'spy house' legend was developed and popularized during those museum years. The house is genuine. The Seabrook and Wilson families are genuine. The Revolutionary War spy network is not.",
     "examination": {
       "claim": "\"I spent six years researching this house before we opened the museum. Every story I tell is based on historical fact. The intelligence network was real. Twelve men. Three years. Seven intercepted fleet movements. I have the evidence.\"",
       "options": [
@@ -81,7 +81,7 @@
           },
           {
             "label": "What is the house's real historical significance?",
-            "response": "'It is one of the oldest houses in New Jersey. Built 1663. Three hundred years of continuous habitation. Colonial architecture almost entirely intact.' She sounds genuinely proud of this — and she should be. The real history is remarkable. It did not need a legend. But that is the strange thing about truth: sometimes it feels less satisfying than a story.'"
+            "response": "'It began about 1720. Nearly three centuries of continuous habitation by the Seabrook and Wilson families. Ship captains. A militia officer. Local merchants. The architecture is largely intact from the 1896 expansion.' She sounds genuinely proud of this — and she should be. The real history is remarkable. It did not need a legend. But that is the strange thing about truth: sometimes it feels less satisfying than a story.'"
           }
         ]
       },
@@ -94,12 +94,12 @@
     "mystery": "What does the historical record actually reveal about the Spy House's famous Revolutionary War intelligence network?",
     "choices": [
       "A documented ring of twelve operatives who signaled British fleet movements to Washington",
-      "A 20th-century legend invented by a caretaker in the 1960s — with no supporting contemporary evidence",
+      "A 20th-century legend popularized after the site became a museum in 1967 — with no supporting contemporary evidence",
       "A real network whose documentation was deliberately destroyed by the Continental Army after the war"
     ],
     "answer": 1,
-    "solved_text": "Elementary! Historians have found no contemporary evidence for the espionage legend. The story was constructed in the 1960s by a caretaker seeking to generate museum interest. The house itself is genuine — built 1663, one of the oldest in New Jersey — but the spy network is almost certainly fiction.",
-    "chapter": "From Farrow's journal: 'The house is real. The view is real. The three hundred years of habitation are real. The spy legend is not. What I found here was a lesson I did not expect: the desire to make history meaningful can produce a history that is not true. Farrow's second fragment, and perhaps the most unsettling: a story that fits a place perfectly is not, for that reason, true. The most dangerous myths are the ones that should have been real.'"
+    "solved_text": "Elementary! Historians have found no contemporary evidence for the espionage legend. The Seabrook-Wilson House is genuinely historic — a Bayshore farmhouse begun about 1720, expanded over generations by the Seabrook and Wilson families — but the Revolutionary War spy network was almost certainly invented and popularized after the site became a museum following the 1967 township purchase.",
+    "chapter": "From Farrow's journal: 'The house is real. The view is real. The nearly three centuries of habitation by the Seabrook and Wilson families are real. The spy legend is not. What I found here was a lesson I did not expect: the desire to make history meaningful can produce a history that is not true. Farrow's second fragment, and perhaps the most unsettling: a story that fits a place perfectly is not, for that reason, true. The most dangerous myths are the ones that should have been real.'"
   },
   {
     "id": "allaire-village",

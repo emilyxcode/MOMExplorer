@@ -41,7 +41,7 @@ const MapView = (() => {
     // Init Leaflet map centered on Monmouth County, NJ
     leafletMap = L.map('map', {
       center: [40.32, -74.17],
-      zoom: 11,
+      zoom: 14,
       zoomControl: true
     });
 
@@ -86,6 +86,40 @@ const MapView = (() => {
     entry.marker.setIcon(makeIcon(state));
   }
 
+  async function loadNewStory(url) {
+    // Remove existing markers from map
+    Object.keys(markers).forEach(id => {
+      leafletMap.removeLayer(markers[id].marker);
+    });
+    markers = {};
+
+    // Load new location data
+    const resp = await fetch(url);
+    locations = await resp.json();
+
+    // Add markers for new locations
+    locations.forEach(loc => {
+      const state = Game.isSolved(loc.id)   ? 'solved'
+                  : Game.isUnlocked(loc.id) ? 'unlocked'
+                  : 'locked';
+
+      const marker = L.marker(loc.coords, { icon: makeIcon(state) })
+        .addTo(leafletMap);
+
+      marker.on('click', () => {
+        if (Game.isUnlocked(loc.id) || Game.isSolved(loc.id)) {
+          UI.openCaseFile(loc);
+        } else {
+          UI.showToast('You must visit this location in person to unlock it.');
+        }
+      });
+
+      markers[loc.id] = { marker, location: loc };
+    });
+
+    return locations;
+  }
+
   function getLocations() { return locations; }
 
   function resetAllMarkers() {
@@ -109,6 +143,6 @@ const MapView = (() => {
     }
   }
 
-  return { init, updateMarker, resetAllMarkers, getLocations, showUserPosition,
+  return { init, updateMarker, resetAllMarkers, getLocations, showUserPosition, loadNewStory,
            get _leafletMap() { return leafletMap; } };
 })();

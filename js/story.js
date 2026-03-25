@@ -1,19 +1,20 @@
 /**
  * story.js — Title screen, chapter reveals, and finale
  *
- * Story: "The Vanished Chronicler"
- * Holmes sends the player to retrace the steps of Dr. Elias Farrow,
- * a Victorian antiquarian who disappeared in 1887 after claiming to
- * have discovered a secret woven through Monmouth County's history.
+ * Story 1: "The Vanished Chronicler"
+ * Story 2: "The Edited County"
  */
 
 const Story = (() => {
-  const NAME_KEY       = 'momexplorer_name';
-  const POS_KEY        = 'momexplorer_pos';
-  const STATE_KEY      = 'momexplorer_state';
-  const INTRO_SEEN_KEY = 'momexplorer_intro_seen';
+  const NAME_KEY        = 'momexplorer_name';
+  const POS_KEY         = 'momexplorer_pos';
+  const STATE_KEY       = 'momexplorer_state';
+  const INTRO_SEEN_KEY  = 'momexplorer_intro_seen';
+  const STORY_KEY       = 'momexplorer_story';
 
-  // Default story data — fetch overrides if available (fallback for file:// or offline)
+  let currentStory = parseInt(localStorage.getItem(STORY_KEY), 10) || 1;
+
+  // Default story data — fetch overrides if available
   let storyData = {
     title: "The Vanished Chronicler",
     intro: [
@@ -26,12 +27,28 @@ const Story = (() => {
       "I suspect you will find, as he did, that history rarely belongs to the people history remembers.",
       "— Sherlock Holmes"
     ],
-    finale_conclusion: "Holmes set down Farrow's completed journal and was quiet for a long moment.\n\n\"He was right, you know,\" he said at last. \"I spent decades looking for the extraordinary hidden behind the ordinary. Farrow found the opposite — the extraordinary hiding in plain sight, wearing the face of the ordinary.\"\n\nHe closed the cover.\n\n\"Every one of these people — Martin, Tennent, Mary Hays, the lighthouse keeper, the ironworkers, the judge, the signal operators — they were not remarkable people doing remarkable things. They were ordinary people who showed up when their moment arrived. That is the secret Dr. Farrow discovered. That is why he chose to stay.\"\n\nA long pause.\n\n\"I confess — I find I rather envy him.\"",
     finale_endings: {
-      chose_to_stay: "Holmes set down Farrow's completed journal and was quiet for a long moment.\n\n\"He chose to stay,\" he said at last. Not a question — a conclusion.\n\n\"Every site points the same direction. He found what he was looking for: proof that ordinary people carry history on their backs without knowing it. He found his answer, and then he found he could not leave the place that had given it to him.\"\n\nHe closed the cover.\n\n\"He is alive, somewhere in this county. Living quietly, among the people whose history he spent his life trying to understand. I have sent no enquiries. I do not intend to.\"\n\nA long pause.\n\n\"I confess — I cannot say that was the wrong decision.\"\n\n— Sherlock Holmes",
-      endangered: "Holmes set down Farrow's completed journal with unusual care.\n\n\"He was afraid,\" he said. \"The thread he found runs deeper than history. Someone else knew about it. Knew about it forty years before Farrow did — and that researcher also vanished.\"\n\nHe stood and moved to the window.\n\n\"Farrow is hiding. Not because he found an answer, but because he found a question someone does not want answered. I advise caution, Detective. If you have followed his path as carefully as I believe you have, you may have been noticed.\"\n\nA long pause.\n\n\"We must find him before whoever frightened him does.\"\n\n— Sherlock Holmes",
-      found_and_fled: "Holmes read the final entry twice before speaking.\n\n\"Extraordinary,\" he said quietly. \"He didn't vanish because he was afraid. He vanished because staying would have forced him to tell someone.\"\n\nHe set the journal down.\n\n\"The 'quiet backbone' is not merely a historical pattern. It is an active thing. The thread connecting these eight sites is still being held — by people alive today, who want no chronicler watching. Farrow found them.\"\n\nA long pause.\n\n\"He disappeared to protect them. And, I suspect — to protect you from knowing too much.\"\n\n— Sherlock Holmes",
-      unknown: "Holmes sat with the pages open before him for a very long time.\n\n\"You have assembled all the evidence,\" he said at last. \"And yet.\"\n\nHe closed the journal.\n\n\"There are three explanations, each supported by what you have gathered. In thirty years of detective work, I have learned that when the evidence supports multiple conclusions equally — and all of them are plausible — the most honest answer is also the simplest one.\"\n\nA long pause.\n\n\"We do not know. The greatest mystery is the one that has several answers, and all of them are true.\"\n\n— Sherlock Holmes"
+      chose_to_stay: "Holmes set down Farrow's completed journal and was quiet for a long moment.\n\n\"He chose to stay,\" he said at last.\n\n\"Every site points the same direction. He found what he was looking for: proof that ordinary people carry history on their backs without knowing it. He found his answer, and then he found he could not leave the place that had given it to him.\"\n\n\"I confess — I cannot say that was the wrong decision.\"\n\n— Sherlock Holmes",
+      endangered: "Holmes set down Farrow's completed journal with unusual care.\n\n\"He was afraid,\" he said. \"The thread he found runs deeper than history. Someone else knew about it — and that researcher also vanished.\"\n\n\"Farrow is hiding. If you have followed his path as carefully as I believe you have, you may have been noticed.\"\n\n\"We must find him before whoever frightened him does.\"\n\n— Sherlock Holmes",
+      found_and_fled: "Holmes read the final entry twice before speaking.\n\n\"He didn't vanish because he was afraid. He vanished because staying would have forced him to tell someone.\"\n\n\"The 'quiet backbone' is an active thing. The thread is still being held — by people alive today. Farrow found them. He disappeared to protect them.\"\n\n— Sherlock Holmes",
+      unknown: "Holmes sat with the pages open before him for a very long time.\n\n\"You have assembled all the evidence,\" he said at last. \"And yet.\"\n\n\"There are three explanations, each supported by what you have gathered. The greatest mystery is the one that has several answers, and all of them are true.\"\n\n— Sherlock Holmes"
+    },
+    story2_title: "The Edited County",
+    story2_intro: [
+      "Detective —",
+      "Farrow has been found.",
+      "He is living quietly in Shrewsbury Township, teaching school under an assumed name. He is not in danger. He chose to stay, as I suspected he had.",
+      "He has sent me a second journal. Not a continuation of his first investigation — a parallel one. While he was cataloguing the 'quiet backbone,' he was also noticing something else: places where history had been deliberately simplified. Not falsified, as at the Spy House — but smoothed over. The awkward parts quietly removed.",
+      "He calls it 'the edited county.'",
+      "His second set of notes concerns five sites. Each one carries a history that people prefer to remember differently from how it actually occurred.",
+      "I will not tell you what Farrow concluded about these places. I want you to find that for yourself.",
+      "— Sherlock Holmes"
+    ],
+    story2_finale_endings: {
+      chose_to_stay: "Holmes read the last entry of the second journal and turned it over in his hands for a long time.\n\n\"He found what he was looking for,\" he said. \"Every one of these five sites carries a story where the official account is not false — but incomplete. Where the omission is not conspiracy, but comfort.\"\n\n\"Farrow chose to stay. He chose not to publish. He chose to teach children the history that the monuments do not tell. That is the most honest thing he could do with what he had found.\"\n\n\"I believe it was the right choice.\"\n\n— Sherlock Holmes",
+      endangered: "Holmes set the second journal down with deliberate care.\n\n\"He found too much. Not too much to understand — too much to ignore. The second thread leads somewhere it should not lead, if it is only about historical omission.\"\n\n\"Garfield. Bradley. Molly Pitcher. Keyport. Matawan. Together — if you follow the pattern of who benefits from the smoothing — they point toward something current.\"\n\n\"Farrow found it. I advise caution. Do not attempt to follow the second thread to its terminus.\"\n\n— Sherlock Holmes",
+      found_and_fled: "Holmes studied the cover of the second journal for a long moment.\n\n\"He fled because of something specific. Not the pattern — he found something in the archive that connected these five sites in a way they should not be connected.\"\n\n\"Farrow is not hiding from history. He is hiding from the people who have decided that a particular piece of history should remain smoothed over.\"\n\n\"I am writing this quickly.\"\n\n— Sherlock Holmes",
+      unknown: "Holmes sat with both journals open before him for a very long time.\n\n\"Two threads. One about what was built. One about what was edited. Both running through the same county, the same people, the same two centuries.\"\n\n\"Farrow found both threads and chose not to pull either one to its end. A county that can carry its difficult history alongside its comfortable one — that is a county that has achieved something rare.\"\n\n\"Whether Monmouth County has achieved that — I leave to you.\"\n\n— Sherlock Holmes"
     }
   };
 
@@ -42,7 +59,7 @@ const Story = (() => {
 
   // ---- Typewriter ----
 
-  function typewriterLines(lines, el, speed = 22, onDone = null) {
+  function typewriterLines(lines, el, speed = 12, onDone = null) {
     if (!lines || lines.length === 0) { if (onDone) onDone(); return; }
     let lineIdx  = 0;
     let charIdx  = 0;
@@ -60,7 +77,7 @@ const Story = (() => {
         charIdx = 0;
         lineIdx++;
         if (lineIdx < lines.length) {
-          setTimeout(tick, 280);
+          setTimeout(tick, 120);
         } else {
           el.innerHTML = fullText.replace(/\n/g, '<br>');
           if (onDone) onDone();
@@ -112,25 +129,21 @@ const Story = (() => {
       setTimeout(() => modal.classList.add('hidden'), 650);
     }
 
-    // Step 1: Enter → Begin
     nameInput.addEventListener('keydown', e => {
       if (e.key === 'Enter') beginBtn.click();
     });
 
-    // Step 1 → Step 2: show the letter, then reveal action buttons
     beginBtn.addEventListener('click', () => {
-      getName(); // save name immediately
+      getName();
       stepName.classList.add('hidden');
       stepLetter.classList.remove('hidden');
 
       const intro = storyData?.intro || [];
       if (!localStorage.getItem(INTRO_SEEN_KEY)) {
-        // First visit — typewriter, buttons appear when done
-        typewriterLines(intro, textEl, 22, () => {
+        typewriterLines(intro, textEl, 12, () => {
           buttonsEl.classList.remove('hidden');
         });
       } else {
-        // Returning — show text statically, buttons immediately
         textEl.innerHTML = intro.join('<br><br>');
         buttonsEl.classList.remove('hidden');
       }
@@ -139,11 +152,12 @@ const Story = (() => {
     newBtn.addEventListener('click', () => {
       const name = getName();
       localStorage.setItem(INTRO_SEEN_KEY, '1');
+      localStorage.setItem(NAME_KEY, name || 'Detective');
+      localStorage.removeItem(STORY_KEY);
+      currentStory = 1;
       Game.reset();
-      MapView.resetAllMarkers();
-      PlayerGame.resetToStart();
-      UI.updateDossierCount();
-      dismissModal(name);
+      // Reload page cleanly to restore story 1 locations if we were in story 2
+      window.location.reload();
     }, { once: true });
 
     loadBtn.addEventListener('click', () => {
@@ -182,17 +196,65 @@ const Story = (() => {
     chapterTimeout = setTimeout(hide, 12000);
   }
 
+  // ---- Story 2 intro ----
+
+  async function showStory2Intro() {
+    await _storyReady;
+
+    const modal   = document.getElementById('story2-modal');
+    const titleEl = document.getElementById('story2-title');
+    const textEl  = document.getElementById('story2-text');
+    const beginBtn = document.getElementById('story2-begin');
+
+    if (storyData?.story2_title) titleEl.textContent = storyData.story2_title;
+
+    const intro = storyData?.story2_intro || [];
+    textEl.innerHTML = '';
+
+    modal.classList.remove('hidden');
+
+    // Typewriter for story 2 intro
+    typewriterLines(intro, textEl, 12, () => {
+      beginBtn.classList.remove('hidden');
+    });
+
+    beginBtn.classList.add('hidden');
+
+    beginBtn.addEventListener('click', async () => {
+      modal.classList.add('fade-out');
+      setTimeout(() => modal.classList.add('hidden'), 650);
+
+      currentStory = 2;
+      localStorage.setItem(STORY_KEY, '2');
+
+      // Load story 2 locations
+      await MapView.loadNewStory('data/locations2.json');
+      UI.updateDossierCount();
+
+      UI.showToast('📖 Chapter II has begun. New locations await.');
+    }, { once: true });
+  }
+
   // ---- Finale — paginated journal ----
 
-  function showFinale(locations) {
+  function showFinale(locations, onClose) {
     const modal = document.getElementById('finale-modal');
     const inner = document.getElementById('finale-inner');
     inner.innerHTML = '';
 
     const detectiveName = localStorage.getItem(NAME_KEY) || 'Detective';
     const dominantTag   = Game.getDominantTag();
-    const endings       = storyData?.finale_endings || {};
-    const endingText    = endings[dominantTag] || endings['unknown'] || storyData?.finale_conclusion || '';
+    const isStory2      = currentStory === 2;
+
+    const endings     = isStory2
+      ? (storyData?.story2_finale_endings || {})
+      : (storyData?.finale_endings || {});
+    const defaultText = isStory2
+      ? (storyData?.story2_finale_conclusion || storyData?.story2_finale_endings?.unknown || '')
+      : (storyData?.finale_conclusion || storyData?.finale_endings?.unknown || '');
+    const endingText  = endings[dominantTag] || endings['unknown'] || defaultText;
+
+    const coverTitle = isStory2 ? "Dr. Farrow's Second Journal" : "The Chronicle of Dr. Elias Farrow";
 
     const tagVerdict = {
       'chose_to_stay':  'He chose to stay.',
@@ -203,14 +265,13 @@ const Story = (() => {
 
     // Build page list
     const pages = [];
-    pages.push({ type: 'cover', name: detectiveName });
+    pages.push({ type: 'cover', name: detectiveName, title: coverTitle });
     locations.forEach(loc => pages.push({ type: 'location', loc }));
     pages.push({ type: 'ending', text: endingText, verdict: tagVerdict[dominantTag] || '' });
     pages.push({ type: 'closed' });
 
     let currentPage = 0;
 
-    // Navigation bar
     const nav = document.createElement('div');
     nav.id = 'journal-nav';
 
@@ -230,9 +291,10 @@ const Story = (() => {
     const pageEl = document.createElement('div');
     pageEl.id = 'journal-page';
 
+    const closeLabel = isStory2 ? 'Return to the Map' : 'Continue →';
     const closeBtn = document.createElement('button');
     closeBtn.id = 'finale-close';
-    closeBtn.textContent = 'Return to the Map';
+    closeBtn.textContent = closeLabel;
 
     inner.append(nav, pageEl, closeBtn);
 
@@ -247,7 +309,7 @@ const Story = (() => {
         pageEl.innerHTML = `
           <div class="journal-cover">
             <div class="journal-cover-label">The Chronicle of</div>
-            <div class="journal-cover-title">Dr. Elias Farrow</div>
+            <div class="journal-cover-title">${page.title}</div>
             <div class="journal-cover-divider">— ✦ —</div>
             <div class="journal-cover-detective">Investigated by Detective ${page.name}</div>
             <div class="journal-cover-date">Monmouth County, New Jersey</div>
@@ -276,7 +338,6 @@ const Story = (() => {
             <div class="journal-closed-stamp">CASE<br>CLOSED</div>
           </div>
         `;
-        // Animate stamp in after a brief delay
         setTimeout(() => {
           const stamp = pageEl.querySelector('.journal-closed-stamp');
           if (stamp) stamp.classList.add('stamp-animate');
@@ -291,7 +352,6 @@ const Story = (() => {
       if (currentPage < pages.length - 1) { currentPage++; renderPage(currentPage); }
     });
 
-    // Arrow key navigation (removed when modal closes)
     function journalKeyHandler(e) {
       if (modal.classList.contains('hidden')) {
         document.removeEventListener('keydown', journalKeyHandler);
@@ -305,6 +365,7 @@ const Story = (() => {
     closeBtn.addEventListener('click', () => {
       modal.classList.add('hidden');
       document.removeEventListener('keydown', journalKeyHandler);
+      if (onClose) onClose();
     }, { once: true });
 
     renderPage(0);
@@ -315,13 +376,17 @@ const Story = (() => {
 
   function onSolve(loc, allLocations) {
     showChapter(loc);
-    if (Game.solvedCount() === allLocations.length) {
+    const solvedInStory = allLocations.filter(l => Game.isSolved(l.id)).length;
+    if (solvedInStory === allLocations.length) {
       setTimeout(() => {
         document.getElementById('chapter-banner').classList.add('hidden');
-        showFinale(allLocations);
+        const isStory2 = currentStory === 2;
+        showFinale(allLocations, isStory2 ? null : showStory2Intro);
       }, 3500);
     }
   }
 
-  return { checkIntro, onSolve, updateHudName };
+  function getCurrentStory() { return currentStory; }
+
+  return { checkIntro, onSolve, updateHudName, getCurrentStory };
 })();

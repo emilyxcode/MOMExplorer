@@ -7,14 +7,16 @@
  * Reset button: return to start, clear saved position
  *
  * Player position is saved to localStorage and restored on reload.
+ * Player icon scales with map zoom — same apparent real-world size at all levels.
  */
 
 const PlayerGame = (() => {
-  const STEP_PER_FRAME = 0.000006;   // degrees per animation frame at speed 1×
+  const STEP_PER_FRAME = 0.000018;   // degrees per animation frame at speed 1×  (3× faster than before)
   const SPRINT_MULT   = 2;           // Shift doubles speed on top of slider
   const UNLOCK_DIST_M = 450;         // metres to unlock a site
   const BTN_STEP      = 0.00020;     // per D-pad button click
   const START_POS     = [40.32, -74.17];
+  const START_ZOOM    = 14;
   const POS_KEY       = 'momexplorer_pos';
   const SPEED_KEY     = 'momexplorer_speed';
 
@@ -23,10 +25,8 @@ const PlayerGame = (() => {
   let leafletMap   = null;
   let shiftHeld    = false;
 
-  // Continuous movement: track which keys are currently down
   const keysHeld = new Set();
 
-  // Throttle counters so we don't hit localStorage or checkProximity at 60 fps
   let saveCounter      = 0;
   let proximityCounter = 0;
 
@@ -37,6 +37,19 @@ const PlayerGame = (() => {
     const a = Math.sin(r(lat2 - lat1) / 2) ** 2
             + Math.cos(r(lat1)) * Math.cos(r(lat2)) * Math.sin(r(lng2 - lng1) / 2) ** 2;
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  // Player icon scales with map zoom so the marker keeps the same apparent real-world footprint.
+  // Base size at zoom 14 = 28px emoji. Each zoom level scales by ×1.4.
+  function makePlayerIcon(zoom) {
+    const fontSize = Math.max(10, Math.min(64, Math.round(28 * Math.pow(1.4, zoom - START_ZOOM))));
+    const size     = Math.round(fontSize * 1.4);
+    return L.divIcon({
+      className: '',
+      html: `<div class="player-marker" style="font-size:${fontSize}px">\u{1F9ED}</div>`,
+      iconSize:   [size, size],
+      iconAnchor: [size / 2, Math.round(size * 0.875)]
+    });
   }
 
   function savePosition() {
@@ -52,7 +65,7 @@ const PlayerGame = (() => {
 
   function getSliderSpeed() {
     const slider = document.getElementById('speed-slider');
-    return slider ? parseInt(slider.value, 10) : 5;
+    return slider ? parseInt(slider.value, 10) : 8;
   }
 
   function getStepPerFrame() {
@@ -63,7 +76,6 @@ const PlayerGame = (() => {
     playerPos[0] += dlat;
     playerPos[1] += dlng;
     playerMarker.setLatLng(playerPos);
-    // Follow player without easing so continuous movement stays fluid
     leafletMap.setView(playerPos, leafletMap.getZoom(), { animate: false });
 
     saveCounter++;
@@ -73,9 +85,7 @@ const PlayerGame = (() => {
     if (proximityCounter >= 8) { checkProximity(); proximityCounter = 0; }
   }
 
-  // requestAnimationFrame movement loop
   function movementLoop() {
-    // Don't move while a panel is open
     const caseOpen = document.getElementById('case-panel')?.classList.contains('visible');
     if (!caseOpen && keysHeld.size > 0) {
       const s = getStepPerFrame();
@@ -113,7 +123,6 @@ const PlayerGame = (() => {
       }
     });
 
-    // Update HUD
     document.getElementById('pos').textContent =
       `${playerPos[0].toFixed(4)}, ${playerPos[1].toFixed(4)}`;
     document.getElementById('landmark').textContent = nearestName;
@@ -124,7 +133,6 @@ const PlayerGame = (() => {
         ? '⚡ Sprint — Arrow keys / WASD • Space to inspect'
         : 'Arrow keys / WASD to move • Space to inspect';
 
-    // Hint when between UNLOCK_DIST_M and 1500m of a locked site
     if (nearestLoc && nearestDist > UNLOCK_DIST_M && nearestDist < 1500
         && !Game.isUnlocked(nearestLoc.id) && !Game.isSolved(nearestLoc.id)) {
       UI.showProximityHint(Math.round(nearestDist));
@@ -153,7 +161,7 @@ const PlayerGame = (() => {
     playerPos = [...START_POS];
     localStorage.removeItem(POS_KEY);
     playerMarker.setLatLng(playerPos);
-    leafletMap.setView(playerPos, 11, { animate: true });
+    leafletMap.setView(playerPos, START_ZOOM, { animate: true });
     checkProximity();
   }
 
@@ -162,20 +170,19 @@ const PlayerGame = (() => {
 
     leafletMap = MapView._leafletMap || document.getElementById('map')._leaflet_map;
 
-    const icon = L.divIcon({
-      className: '',
-      html: '<div class="player-marker">🧭</div>',
-      iconSize:   [32, 32],
-      iconAnchor: [16, 28]
+    playerMarker = L.marker(playerPos, {
+      icon: makePlayerIcon(START_ZOOM),
+      zIndexOffset: 1000
+    }).addTo(leafletMap);
+
+    // Update icon whenever the user zooms in or out
+    leafletMap.on('zoomend', () => {
+      playerMarker.setIcon(makePlayerIcon(leafletMap.getZoom()));
     });
 
-    playerMarker = L.marker(playerPos, { icon, zIndexOffset: 1000 })
-      .addTo(leafletMap);
-
-    leafletMap.setView(playerPos, 11);
+    leafletMap.setView(playerPos, START_ZOOM);
     checkProximity();
 
-    // Show saved name in HUD
     const savedName = localStorage.getItem('momexplorer_name');
     if (savedName && typeof Story !== 'undefined') Story.updateHudName(savedName);
 
@@ -190,15 +197,17 @@ const PlayerGame = (() => {
       localStorage.setItem(SPEED_KEY, slider.value);
     });
 
-    // Track shift for sprint
+    // Shift toggles sprint on/off (press once to enable, press again to disable)
     document.addEventListener('keydown', e => {
-      if (e.key === 'Shift') { shiftHeld = true; }
-    });
-    document.addEventListener('keyup', e => {
-      if (e.key === 'Shift') { shiftHeld = false; }
+      if (e.key === 'Shift' && !e.repeat) {
+        e.preventDefault();
+        shiftHeld = !shiftHeld;
+        document.getElementById('action').textContent = shiftHeld
+          ? '⚡ Sprint ON — Arrow keys / WASD • Space to inspect'
+          : 'Arrow keys / WASD to move • Space to inspect';
+      }
     });
 
-    // Key tracking for continuous movement
     document.addEventListener('keydown', e => {
       if (document.activeElement?.tagName === 'INPUT') return;
 
@@ -209,7 +218,6 @@ const PlayerGame = (() => {
         return;
       }
 
-      // Case panel: Space/Enter closes it
       if (!document.getElementById('case-panel').classList.contains('hidden')) {
         if (e.key === ' ' || e.key === 'Enter') {
           e.preventDefault();
@@ -218,7 +226,6 @@ const PlayerGame = (() => {
         return;
       }
 
-      // Space/Enter away from panel: open nearest
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         openNearest();
@@ -227,19 +234,16 @@ const PlayerGame = (() => {
 
     document.addEventListener('keyup', e => {
       keysHeld.delete(e.key);
-      // Also clear case variants (e.g. 'W' held when capslock toggles to 'w')
       keysHeld.delete(e.key.toLowerCase());
       keysHeld.delete(e.key.toUpperCase());
     });
 
-    // D-pad buttons (discrete steps, slightly larger than per-frame)
     document.getElementById('panUp').addEventListener('click',    () => { applyMove( BTN_STEP, 0); savePosition(); checkProximity(); });
     document.getElementById('panDown').addEventListener('click',  () => { applyMove(-BTN_STEP, 0); savePosition(); checkProximity(); });
     document.getElementById('panLeft').addEventListener('click',  () => { applyMove(0, -BTN_STEP); savePosition(); checkProximity(); });
     document.getElementById('panRight').addEventListener('click', () => { applyMove(0,  BTN_STEP); savePosition(); checkProximity(); });
     document.getElementById('resetPan').addEventListener('click', resetPosition);
 
-    // Start the movement loop
     requestAnimationFrame(movementLoop);
   }
 
